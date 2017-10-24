@@ -10,9 +10,9 @@
 
 [목차](toc.md)
 
-* [Foreword](foreword.md) (by [Jenn Lukas](http://jennlukas.com))
-* [Preface](../preface.md)
-* [Chapter 1: Into Programming](ch1.md)
-* [Chapter 2: Into JavaScript](ch2.md)
-* [Chapter 3: Into YDKJS](ch3.md)
-* [Appendix A: Thank You's!](apA.md)
+* [머리말](foreword.md) (by [Jenn Lukas](http://jennlukas.com))
+* [서문](../preface.md)
+* [1장 프로그래밍 속으로](ch1.md)
+* [2장 자바스크립트 속으로](ch2.md)
+* [3장 당신은 자바스크립트를 모른다 속으로](ch3.md)
+* [부록 A: 당신들에게 감사합니다.!](apA.md)
