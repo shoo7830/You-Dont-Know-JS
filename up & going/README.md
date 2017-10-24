@@ -8,7 +8,7 @@
 
 -----
 
-[Table of Contents](toc.md)
+[목차](toc.md)
 
 * [Foreword](foreword.md) (by [Jenn Lukas](http://jennlukas.com))
 * [Preface](../preface.md)
