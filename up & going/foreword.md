@@ -1,19 +1,24 @@
 # You Don't Know JS: Up & Going
-# Foreword
+# 머리말
 
-What was the last new thing you learned?
+마지막으로 새로 배운 것이 무엇인가요?
 
-Perhaps it was a foreign language, like Italian or German. Or maybe it was a graphics editor, like Photoshop. Or a cooking technique or woodworking or an exercise routine. I want you to remember that feeling when you finally got it: the lightbulb moment. When things went from blurry to crystal clear, as you mastered the table saw or understood the difference between masculine and feminine nouns in French. How did it feel? Pretty amazing, right?
+아마 이탈리아어, 독일어와 같은 외국어거나 포토샵과 같은 그래픽 편집기 일 수 있습니다. 또는 요리기술이나 목공예, 운동루틴 일 수도 있지요. 나는 당신이 마침내 번뜩이는 그 순간을 느꼈을 때를 기억하길 바랍니다. 당신이 테이블 톱을 마스터했거나 프랑스어의 남성명사와 여성명사의 차이를 이해했을 때 무엇인가 모호했던 것이 분명해지겠지요. 기분이 어땠어요? 꽤 놀랍죠? 맞죠? 
 
-Now I want you to travel back a little bit further in your memory to right before you learned your new skill. How did *that* feel? Probably slightly intimidating and maybe a little bit frustrating, right? At one point, we all did not know the things that we know now and that’s totally OK; we all start somewhere. Learning new material is an exciting adventure, especially if you are looking to learn the subject efficiently.
+이제 당신의 기억이 새로운 기술을 배우기 이전으로 더 멀리 여행하기를 원해요. 
 
-I teach a lot of beginner coding classes. The students who take my classes have often tried teaching themselves subjects like HTML or JavaScript by reading blog posts or copying and pasting code, but they haven’t been able to truly master the material that will allow them to code their desired outcome. And because they don’t truly grasp the ins and outs of certain coding topics, they can’t write powerful code or debug their own work, as they don’t really understand what is happening.
+ *어떻게 느꼈나요?* 아마 약간 겁을 먹기도 했고 조금 실망스럽기도 했지요? 한 때, 우리는 우리가 알고 있는 모든 것들을 알지 못했고, 완전히 괜찮았지요. 우리 모두는 어딘가에서 시작합니다. 새로운 소재를 배우는 것은 흥미 진진한 모험이고 특별히 대상을 효율적으로 배우려고 할 때 유용합니다.
 
-I always believe in teaching my classes the proper way, meaning I teach web standards, semantic markup, well-commented code, and other best practices. I cover the subject in a thorough manner to explain the hows and whys, without just tossing out code to copy and paste. When you strive to comprehend your code, you create better work and become better at what you do. The code isn’t just your *job* anymore, it’s your *craft*. This is why I love *Up & Going*. Kyle takes us on a deep dive through syntax and terminology to give a great introduction to JavaScript without cutting corners. This book doesn’t skim over the surface, but really allows us to genuinely understand the concepts we will be writing.
+저는 초급 코딩 수업을 많이 가르치죠. 수업을 듣는 학생들은 블로그 글을 읽거나 코드를 복붙하기를 통해 HTML이나 자바스크립트와 같은 주제를 스스로 배우려고 종종 노력하였습니다. 그러나 원하는 결과를 코딩할 수 있는 자료를 습득할 수 없었지요. 특정 코딩 주제에 대한 내용을 실제로 파악하지 못하기 때문에 강력한 코드를 작성하거나 자체 작업을 디버깅 할 수 없습니다.
 
-Because it’s not enough to be able to duplicate jQuery snippets into your website, the same way it’s not enough to learn how to open, close, and save a document in Photoshop. Sure, once I learn a few basics about the program I could create and share a design I made. But without legitimately knowing the tools and what is behind them, how can I define a grid, or craft a legible type system, or optimize graphics for web use. The same goes for JavaScript. Without knowing how loops work, or how to define variables, or what scope is, we won’t be writing the best code we can. We don’t want to settle for anything less -- this is, after all, our craft.
+저는 항상 내 수업에서 올바른 길을 가르쳐주겠다고 믿으며, 그것은 웹 표준, 의미론적 마크업, 잘 주석처리 된 코드 및 기타 우수 사례를 가리치는 것을 의미합니다. 저는 코드를 복사하여 붙여넣기를 하지 않고도 주제를 철저하게 설명합니다. 
 
-The more you are exposed to JavaScript, the clearer it becomes. Words like closures, objects, and methods might seem out of reach to you now, but this book will help those terms come into clarity. I want you to keep those two feelings of before and after you learn something in mind as you begin this book. It might seem daunting, but you’ve picked up this book because you are starting an awesome journey to hone your knowledge. *Up & Going* is the start of our path to understanding programming. Enjoy the lightbulb moments!
+코드를 이해하려고 노력하면 더 나은 작업을 만들게 되고 자신이 하는 일에 더 능숙해집니다. 코드는 더 이상 당신의 *직업*이 아닙니다. 그것은 당신의 *기술*입니다. 이것이 내가 *Up & Going*을 좋아하는 이유입니다. Kyle은 구문과 용어를 통해 깊이 들어가서 모서리를 자르지 않고 자바스크립트에 대한 훌륭한 소개를 제공합니다. 이 책은 표면을 훑어 보지는 않지만 실제로 우리가 쓰게 될 개념을 진정으로 이해할 수 있게 해줍니다.
+
+포토샵에서 문서를 열고 닫고 저장하는 방법을 배우는 것과 같은 방식으로는 jQuery 스니팻을 복사해서 웹 사이트에 넣게 하는 것은 충분하지 않습니다. 아 물론 일단 프로그램에 대한 몇 가지 기본 사항을 배웠다면, 내가 만든 디자인을 만들고 공유할 수 있었습니다.
+그러나 알고 있는 도구의 적당함이 없이, 그 뒤에 무엇이 있는지 알지 못하고 그리드를 정의하거나 가독성 있는 시스템을 만들거나 웹용 그래픽을 최적화하는 방법은 무엇입니까? 자바스크립트도 마찬가지입니다. 루프가 작동하는 방법이나 변수를 정의하는 방법 또는 scope가 뭔지 알지 못하면 최선의 코드를 작성하지 못할 것입니다. 우리는 아무것도 적당하게 되는 것을 윈치 않습니다. 이것은 결국 우리의 기술입니다.
+
+자바스크립트에 더 노출 될 수록 더 명확해집니다. 클로저, 객체, 메서드와 같은 단어가 지금 당신에게 다가갈수 없는 것처럼 보입니다. 그러나 이 책은 용어들에 명확하게 이해되도록 도와줄 것입니다. 이 책을 시작할 때 마음에 드는 것을 배우기 전후에 이 두 가지 감정을 지키길 바랍니다. 그것은 위압적으로 보일지도 모릅니다. 그러나 당신이 지식을 연마할 수 있는 놀라운 여행을 시작하기 때문에 당신은 이 책을 선택했습니다. *Up & Going*은 프로그래밍 이해에 대한 출발점입니다. 번뜩이는 순간을 즐기십시오!
 
 Jenn Lukas<br>
 [jennlukas.com](http://jennlukas.com/), [@jennlukas](https://twitter.com/jennlukas)<br>
