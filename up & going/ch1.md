@@ -1,72 +1,71 @@
 # You Don't Know JS: Up & Going
-# Chapter 1: Into Programming
+# 1장 프로그래밍 속으로
 
-Welcome to the *You Don't Know JS* (*YDKJS*) series.
+*You Don't Know JS* (*YDKJS*) 시리즈에 오신 것을 환영합니다.
 
-*Up & Going* is an introduction to several basic concepts of programming -- of course we lean toward JavaScript (often abbreviated JS) specifically -- and how to approach and understand the rest of the titles in this series. Especially if you're just getting into programming and/or JavaScript, this book will briefly explore what you need to get *up and going*.
+*Up & Going*은 프로그래밍의 몇 가지 기본 개념을 소개합니다. -- 물론 우리는 자바스크립트(종종 약어로 JS)를 향하여 기울여야합니다. -- 그리고 이 시리즈의 나머지 타이틀에 접근하고 이해하는 방법에 대해 설명합니다. 특히 프로그래밍 또는/혹은 자바스크립트에 익숙해진 분들에게  당신이 얻고자 하는 *up and going* 을 이 책에서 간략하게 탐색할 것입니다. 
 
-This book starts off explaining the basic principles of programming at a very high level. It's mostly intended if you are starting *YDKJS* with little to no prior programming experience, and are looking to these books to help get you started along a path to understanding programming through the lens of JavaScript.
+이 책은 매우 높은 수준에서 프로그래밍의 기본 원칙을 설명하기 시작합니다. 사전 프로그래밍 경험이 거의 없거나 전혀 없이 *YDKJS*를 시작하고 자바스크립트의 렌즈를 통해 프로그래밍을 이해하는 길을 시작할 수 있도록 돕기 위해 이 책들을 찾고 있는 경우가 대부분입니다.
 
-Chapter 1 should be approached as a quick overview of the things you'll want to learn more about and practice to get *into programming*. There are also many other fantastic programming introduction resources that can help you dig into these topics further, and I encourage you to learn from them in addition to this chapter.
+제 1장은 *프로그래밍에 대해* 더 배우고 실습하고 싶은 것들에 대한 간략한 개요로 접근해야합니다. 또한 이 주제들을 더 깊이 파헤치는 데 도움이 될 수 있는 환상적인 프로그래밍 소개 리소스가 많이 있습니다. 이 장 이외에 이들로부터 배울 것을 권장합니다.
 
-Once you feel comfortable with general programming basics, Chapter 2 will help guide you to a familiarity with JavaScript's flavor of programming. Chapter 2 introduces what JavaScript is about, but again, it's not a comprehensive guide -- that's what the rest of the *YDKJS* books are for!
+일반적인 프로그래밍 기본 사항에 익숙해지면 2장은 자바스크립트 프로그래밍의 익숙함을 안내하는데 도움이 됩니다. 2장에서는 자바스크립트에 대해 소개하지만, 포괄적인 가이드는 아닙니다. 나머지 *YDKJS* 서적은 무엇을 위한 것입니까!
 
-If you're already fairly comfortable with JavaScript, first check out Chapter 3 as a brief glimpse of what to expect from *YDKJS*, then jump right in!
+자바스크립트에 익숙하다면, 먼저 *YDKJS*에서 기대할 수 있는 것을 간단히 엿볼 수 있는 3장을 확인한 다음, 바로 뛰어 들어보십시오!
 
-## Code
+## 코드
 
-Let's start from the beginning.
+기초부터 시작해봅시다.
 
-A program, often referred to as *source code* or just *code*, is a set of special instructions to tell the computer what tasks to perform. Usually code is saved in a text file, although with JavaScript you can also type code directly into a developer console in a browser, which we'll cover shortly.
+흔히 *소스 코드* 또는 *코드*라고 하는 프로그램은 수행 할 작업을 컴퓨터에 알려주는 특수 지침 세트 입니다. 일반적으로 코드는 텍스트 파일로 저장됩니다. 자바스크립트를 사용하면 브라우저 개발자 콘솔에 직접 코드를 입력 할 수도 있습니다. 곧 다룰 내용을 살펴 보겠습니다.
 
-The rules for valid format and combinations of instructions is called a *computer language*, sometimes referred to as its *syntax*, much the same as English tells you how to spell words and how to create valid sentences using words and punctuation.
+유효한 형식 및 명령어의 조합에 대한 규칙을 *컴퓨터 언어*라고 하며 *구문 분석*이라고도 하며 영어와 거의 같은 방식으로 철자를 쓰는 방법과 단어와 구두점을 사용하여 유효한 문장을 만드는 방법을 알려줍니다.
 
-### Statements
+### 명령문
 
-In a computer language, a group of words, numbers, and operators that performs a specific task is a *statement*. In JavaScript, a statement might look as follows:
-
-```js
-a = b * 2;
-```
-
-The characters `a` and `b` are called *variables* (see "Variables"), which are like simple boxes you can store any of your stuff in. In programs, variables hold values (like the number `42`) to be used by the program. Think of them as symbolic placeholders for the values themselves.
-
-By contrast, the `2` is just a value itself, called a *literal value*, because it stands alone without being stored in a variable.
-
-The `=` and `*` characters are *operators* (see "Operators") -- they perform actions with the values and variables such as assignment and mathematic multiplication.
-
-Most statements in JavaScript conclude with a semicolon (`;`) at the end.
-
-The statement `a = b * 2;` tells the computer, roughly, to get the current value stored in the variable `b`, multiply that value by `2`, then store the result back into another variable we call `a`.
-
-Programs are just collections of many such statements, which together describe all the steps that it takes to perform your program's purpose.
-
-### Expressions
-
-Statements are made up of one or more *expressions*. An expression is any reference to a variable or value, or a set of variable(s) and value(s) combined with operators.
-
-For example:
+컴퓨터 언어에서 특정 작업을 수행하는 단어, 숫자 및 운영자 그룹이 *명령문* 입니다. 자바스크립트에서는 명령문이 다음과 같이 보일 수 있습니다:
 
 ```js
 a = b * 2;
 ```
 
-This statement has four expressions in it:
+문자 `a`와 `b`는 *변수* (변수 참조)이며, 간단한 상자처럼 물건을 저장할 수 있습니다. 프로그램에서 변수는 프로그램에서 사용할 값(예: `42`)을 포함합니다. 값 그 자체에 대한 상징적인 placeholder 라고 생각하십시오. 
 
-* `2` is a *literal value expression*
-* `b` is a *variable expression*, which means to retrieve its current value
-* `b * 2` is an *arithmetic expression*, which means to do the multiplication
-* `a = b * 2` is an *assignment expression*, which means to assign the result of the `b * 2` expression to the variable `a` (more on assignments later)
+대조적으로, `2`는 변수 자체에 저장되지 않고 혼자 있기 때문에 *리터럴 값*이라고 하는 값 자체입니다.
 
-A general expression that stands alone is also called an *expression statement*, such as the following:
+`=` 과 `*` 문자는 *연산자* ("연산자" 참조)입니다. 할당 및 수학적 곱셈과 같은 값 및 변수를 사용하여 작업을 수행합니다.
+
+자바스크립트의 대부분의 문장의 끝은 세미콜론(`;`)으로 끝납니다.
+
+`a = b * 2;` 대략 컴퓨터에 변수 `b`에 저장된 현재 값을 얻고 그 값에 `2`를 곱한 다음 결과를 다시 다른 변수 `a`로 저장합니다. 
+
+프로그램은 단지 프로그램 목적을 수행하는 데 필요한 모든 단계를 설명하는 많은 명령문의 모음입니다.
+
+### 표현식
+
+명령문은 하나 이상의 *표현식*으로 구성됩니다. 표현식은 변수 또는 값에 대한 참조이거나 연산자와 결합 된 변수 및 값의 집합입니다.
+
+예:
+
+```js
+a = b * 2;
+```
+
+이 명령문에는 4개의 표현식이 있습니다:
+
+* `2` 는 *리터럴 값 표현식*입니다.
+* `b` 는 현재 값을 검색하는 *변수 표현식*입니다.
+* `b * 2` 는 곱셈을 하는 것을 의미하는 *산술 표현식*입니다.
+* `a = b * 2` 는 *대입 표현식*으로, `b * 2` 표현식의 결과를 변수 `a`에 대입하는 것을 의미합니다.  (할당에 대해서는 나중에 자세히 설명 함)
+
+단독으로 사용되는 일반 표현식은 다음과 같이 *표현식 구문*이라고 합니다.
 
 ```js
 b * 2;
 ```
+이 표현 문은 일반적으로 프로그램 실행에 아무런 영향을 미치지 않기 때문에 매우 일반적이거나 유용하지 않습니다. `b`의 값을 검색하고 `2`를 곱한 다음 아무것도 하지 않습니다. 그 결과, 
 
-This flavor of expression statement is not very common or useful, as generally it wouldn't have any effect on the running of the program -- it would retrieve the value of `b` and multiply it by `2`, but then wouldn't do anything with that result.
-
-A more common expression statement is a *call expression* statement (see "Functions"), as the entire statement is the function call expression itself:
+보다 일반적인 표현식 문은 전체 표현식이 함수 호출 표현식이기 때문에 *호출 표현문*("함수" 참조)입니다.
 
 ```js
 alert( a );
