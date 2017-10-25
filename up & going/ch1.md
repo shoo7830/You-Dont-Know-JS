@@ -71,15 +71,15 @@ b * 2;
 alert( a );
 ```
 
-### Executing a Program
+### 프로그램 실행
 
-How do those collections of programming statements tell the computer what to do? The program needs to be *executed*, also referred to as *running the program*.
+이러한 프로그래밍 구문 컬렉션은 컴퓨터에서 무엇을 해야한다고 말합니까? 프로그램은 *실행되어야* 하며, 또한 *프로그램 실행*이라고도 합니다.
 
-Statements like `a = b * 2` are helpful for developers when reading and writing, but are not actually in a form the computer can directly understand. So a special utility on the computer (either an *interpreter* or a *compiler*) is used to translate the code you write into commands a computer can understand.
+`a = b * 2`와 같은 구문은 개발자가 읽고 쓰는 데 도움이 되지만 실제로 컴퓨터가 직접 이해할 수 있는 형식은 아닙니다. 따라서 컴퓨터의 특별한 유틸리티(*인터프리터* 또는 *컴파일러*)는 작성한 코드를 컴퓨터가 이해할 수 있는 명령으로 변환하는데 사용됩니다.
 
-For some computer languages, this translation of commands is typically done from top to bottom, line by line, every time the program is run, which is usually called *interpreting* the code.
+일부 컴퓨터 언어의 경우 이 명령 변환은 대개 프로그램이 실행될 때마다 한 줄씩 위에서부터 차례대로 수행되며 일반적으로 코드 *해석*이라고 합니다.
 
-For other languages, the translation is done ahead of time, called *compiling* the code, so when the program *runs* later, what's running is actually the already compiled computer instructions ready to go.
+다른 언어의 경우 변역은 코드 *컴파일*이라고 미리 수행되며, 그래서 프로그램이 나중에 *실행*될 때 실행 중인 것은 실제로 이미 컴파일 된 컴퓨터의 명령어입니다. 
 
 It's typically asserted that JavaScript is *interpreted*, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually *compiles* the program on the fly and then immediately runs the compiled code.
 
