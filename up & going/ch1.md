@@ -193,44 +193,47 @@ console.log( a );	// 42
 다음은 자바스크립트에서 가장 일반적인 연산자 중 일부입니다:
 
 * 할당: `a = 2`의 경우에서와 같이 `=`.
-* 수학: `a * 3`의 경우에서와 같이`+` (더하기), `-` (빼기), `*` (곱하기), `/` (나누기).
+* 사칙연산: `a * 3`의 경우에서와 같이`+` (더하기), `-` (빼기), `*` (곱하기), `/` (나누기).
 * 복합 할당: `a++` (`a = a + 1`와 동일)의 경우에서와 같이 `+=`, `-=`, `*=`, `/=` 수학 연산과 대입 연산자를 결합하는 복합 연산자입니다.
 * 객체 속성 액세스: `console.log()`의 경우에서와 같이 `.`
 
   객체는 속성이라는 특정 명명된 위치에세서 다른 값을 보유하는 값입니다. `obj.a`는 `a`라는 속성을 가진 `obj`라는 객체 값을 의미합니다.
 
-   Objects are values that hold other values at specific named locations called properties. `obj.a` means an object value called `obj` with a property of the name `a`. Properties can alternatively be accessed as `obj["a"]`. See Chapter 2.
-* Equality: `==` (loose-equals), `===` (strict-equals), `!=` (loose not-equals), `!==` (strict not-equals), as in `a == b`.
+  객체는 속성이라는 특정 명명된 위치에서 다른 값을 보유하는 값입니다. `obj.a`는 `a`라는 속성을 가진 `obj`라는 객체 값을 의미합니다. 속성은 `obj["a"]`로 엑세스 할 수도 있습니다. 2장을 참조하십시오.
 
-   See "Values & Types" and Chapter 2.
-* Comparison: `<` (less than), `>` (greater than), `<=` (less than or loose-equals), `>=` (greater than or loose-equals), as in `a <= b`.
+* 동등: `a == b` 의 경우에서와 같이 `==` (느슨한 equals), `===` (엄격한 equals), `!=` (느슨한 not-equals), `!==` (엄격한 not-equals)
 
-   See "Values & Types" and Chapter 2.
-* Logical: `&&` (and), `||` (or), as in `a || b` that selects either `a` *or* `b`.
+  "값과 유형", 2장을 참조하십시오.
 
-   These operators are used to express compound conditionals (see "Conditionals"), like if either `a` *or* `b` is true.
+* 비교: `a <= b` 의 경우에서와 같이 `<` (보다 작다), `>` (보다 크다), `<=` (작거나 같다), `>=` (크거나 같다)
 
-**Note:** For much more detail, and coverage of operators not mentioned here, see the Mozilla Developer Network (MDN)'s "Expressions and Operators" (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators).
+   "값과 유형", 2장을 참조하십시오.
 
-## Values & Types
+* 논리:  `&&` (and), `||` (또는), `a || b`는 `a` *또는* `b`를 선택합니다. 
 
-If you ask an employee at a phone store how much a certain phone costs, and they say "ninety-nine, ninety-nine" (i.e., $99.99), they're giving you an actual numeric dollar figure that represents what you'll need to pay (plus taxes) to buy it. If you want to buy two of those phones, you can easily do the mental math to double that value to get $199.98 for your base cost.
+  이 연산자는 `a` *또는* `b`가 참인 것과 같이 복합 조건부 ("조건부" 참조)를 표현하는 데 사용됩니다.
 
-If that same employee picks up another similar phone but says it's "free" (perhaps with air quotes), they're not giving you a number, but instead another kind of representation of your expected cost ($0.00) -- the word "free."
+**참고:** 여기에 언급되지 않은 연산자에 대한 자세한 내용과 적용 범위는 Mozilla Developer Network (MDN)의 "표현식 및 연산자"를 참조하십시오. (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators).
 
-When you later ask if the phone includes a charger, that answer could only have been either "yes" or "no."
+## 값과 유형
 
-In very similar ways, when you express values in a program, you choose different representations for those values based on what you plan to do with them.
+전화 상점 직원에게 전화 비용이 얼마인지 묻는다면 그들은 "99, 99.99"라고 말합니다. 전화 번호는 실제 숫자로 표시되며, 그것을 사기 위해 (세금을 더 지불해야합니다.) 이 전화기 중 두 대를 사고 싶다면 기본 가격으로 199.98 달러를 얻으려면이 값을 두 배로 늘리는 정신적 인 수학을 쉽게 할 수 있습니다.
 
-These different representations for values are called *types* in programming terminology. JavaScript has built-in types for each of these so called *primitive* values:
+같은 직원이 다른 비슷한 전화를 선택하면, 그러나 그것은 "무료"(아마도 액면 그대로 받아들이지 말라고 손짓.)라고 말하면서, 그들은 당신에게 숫자를주지 않고, 당신의 기대 비용 ($ 0.00)의 또 다른 표현 - 단어 "무료"를 말합니다.
 
-* When you need to do math, you want a `number`.
-* When you need to print a value on the screen, you need a `string` (one or more characters, words, sentences).
-* When you need to make a decision in your program, you need a `boolean` (`true` or `false`).
+나중에 전화에 충전기가 포함되어 있는지 물어 보면 그 대답은 "예"또는 "아니오"중 하나 일 수 있습니다.
 
-Values that are included directly in the source code are called *literals*. `string` literals are surrounded by double quotes `"..."` or single quotes (`'...'`) -- the only difference is stylistic preference. `number` and `boolean` literals are just presented as is (i.e., `42`, `true`, etc.).
+매우 유사한 방식으로, 프로그램에서 가치를 표현할 때, 당신은 그 값으로 무엇을 할 계획인지에 따라 다른 표현을 선택하게됩니다.
 
-Consider:
+이러한 값에 대한 다양한 표현을 프로그래밍 용어로 *유형*이라고합니다. 자바스크립트에는 *원시* 변수라는 기본 값이 있습니다:
+
+* 계산을 해야 할 때 `숫자`가 필요합니다.
+* 화면에 값을 인쇄해야 할 때 `문자열` (하나 이상의 문자, 단어, 문장)이 필요합니다.
+* 프로그램에서 결정을 내려야 할 때는 `부울` (`true` 또는 `false`)이 필요합니다.
+
+소스 코드에 직접 포함 된 값을 *리터럴*이라고합니다. `문자열` 리터럴은 큰 따옴표 `"..."`또는 작은 따옴표 ( '...')로 둘러싸여 있습니다. 유일한 차이점은 문체 선호입니다. `숫자` 및 `부울` 리터럴은 그대로 표현됩니다 (예 : `42`, `true` 등).
+
+고려사항:
 
 ```js
 "I am a string";
@@ -242,13 +245,15 @@ true;
 false;
 ```
 
-Beyond `string`/`number`/`boolean` value types, it's common for programming languages to provide *arrays*, *objects*, *functions*, and more. We'll cover much more about values and types throughout this chapter and the next.
+`문자열` / `숫자` / `부울` 값 유형 이외에도 프로그래밍 언어가 *배열*, *객체*, *함수* 등을 제공하는 것이 일반적입니다. 이 장과 다음 장에서 가치와 유형에 대해 더 많이 다룰 것입니다.
 
-### Converting Between Types
+### 유형 간 변환
 
-If you have a `number` but need to print it on the screen, you need to convert the value to a `string`, and in JavaScript this conversion is called "coercion." Similarly, if someone enters a series of numeric characters into a form on an ecommerce page, that's a `string`, but if you need to then use that value to do math operations, you need to *coerce* it to a `number`.
+`숫자`가 있지만 화면에 인쇄해야하는 경우 값을 `문자열`로 변환 해야하며 자바스크립트에서는 이 변환을 "강제 변환"이라고합니다. 마찬가지로 누군가가 전자 상거래 페이지의 양식에 일련의 숫자를 입력하면 해당 `문자열`이지만, 그 값을 사용하여 수학 연산을 수행해야하는 경우 `숫자`로 *변환*해야합니다.
 
-JavaScript provides several different facilities for forcibly coercing between *types*. For example:
+자바스크립트는 *유형* 간에 강제로 강제 변환하는 여러 가지 기능을 제공합니다. 
+
+예:
 
 ```js
 var a = "42";
@@ -258,21 +263,22 @@ console.log( a );	// "42"
 console.log( b );	// 42
 ```
 
-Using `Number(..)` (a built-in function) as shown is an *explicit* coercion from any other type to the `number` type. That should be pretty straightforward.
+그림과 같이 `Number (..)` (내장 함수)를 사용하면 다른 형식에서 `숫자` 형식으로 *명시적으로* 변환 할 수 있습니다. 그것은 아주 간단해야합니다.
 
-But a controversial topic is what happens when you try to compare two values that are not already of the same type, which would require *implicit* coercion.
+그러나 논쟁의 여지가 있는 주제는 *암시적* 강제 변환이 필요한 동일한 유형이 아닌 두 값을 비교하려고 할 때 일어나는 일입니다.
 
-When comparing the string `"99.99"` to the number `99.99`, most people would agree they are equivalent. But they're not exactly the same, are they? It's the same value in two different representations, two different *types*. You could say they're "loosely equal," couldn't you?
+문자열 `"99.99"`와 숫자 `99.99`를 비교할 때 대부분의 사람들은 그들이 동등하다는 것에 동의 할 것입니다. 하지만 정확히 똑같지는 않습니까? 두 가지 다른 표현, 즉 두 가지 *유형*에서 동일한 값입니다. 당신은 그들이 "느슨하게 동등하다"고 말할 수 있겠습니까?
 
-To help you out in these common situations, JavaScript will sometimes kick in and *implicitly* coerce values to the matching types.
 
-So if you use the `==` loose equals operator to make the comparison `"99.99" == 99.99`, JavaScript will convert the left-hand side `"99.99"` to its `number` equivalent `99.99`. The comparison then becomes `99.99 == 99.99`, which is of course `true`.
+이러한 일반적인 상황에서 당신을 도울 수 있도록 자바스크립트는 때로는 값을 입력하여 일치하는 유형에 *암묵적으로* 강제합니다.
 
-While designed to help you, implicit coercion can create confusion if you haven't taken the time to learn the rules that govern its behavior. Most JS developers never have, so the common feeling is that implicit coercion is confusing and harms programs with unexpected bugs, and should thus be avoided. It's even sometimes called a flaw in the design of the language.
+따라서 `==` 느슨한 equals 연산자를 사용하여 비교 `"99.99"== 99.99`를 만들면 자바스크립트는 왼쪽 `"99.99"`를 `숫자 99.99`로 변환합니다. 비교는 `99.99 == 99.99`가되는데, 이는 `참`입니다.
 
-However, implicit coercion is a mechanism that *can be learned*, and moreover *should be learned* by anyone wishing to take JavaScript programming seriously. Not only is it not confusing once you learn the rules, it can actually make your programs better! The effort is well worth it.
+당신이 그 행동을 지배하는 규칙을 배우는 데 시간을 할애하지 않았다면 암묵적인 강제 변환은 혼란을 야기 할 수 있습니다. 대부분의 JS 개발자는 절대 사용하지 않으므로 암묵적인 강제가 혼란스럽고 예기치 않은 버그가 있는 프로그램에 피해를 입힙니다. 따라서 피해야합니다. 때로는 언어 디자인의 결함으로 불리기도 합니다.
 
-**Note:** For more information on coercion, see Chapter 2 of this title and Chapter 4 of the *Types & Grammar* title of this series.
+그러나 암묵적인 강제 변환은 *배울 수 있는* 메커니즘이며, 또한 자바스크립트 프로그래밍을 중요하게 생각하는 사람이 *배워야합니다.* 규칙을 배운 후에 혼란 스러울뿐만 아니라 실제로 프로그램을 더 잘 만들 수 있습니다! 그 노력은 그만한 가치가 있습니다.
+
+**참고 :** 강제 변환에 대한 자세한 내용은 이 책의 2 장과 이 시리즈의 *유형 및 문법* 4 장을 참조하십시오.
 
 ## Code Comments
 
