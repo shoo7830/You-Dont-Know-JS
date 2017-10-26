@@ -81,21 +81,22 @@ alert( a );
 
 다른 언어의 경우 변역은 코드 *컴파일*이라고 미리 수행되며, 그래서 프로그램이 나중에 *실행*될 때 실행 중인 것은 실제로 이미 컴파일 된 컴퓨터의 명령어입니다. 
 
-It's typically asserted that JavaScript is *interpreted*, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually *compiles* the program on the fly and then immediately runs the compiled code.
+일반적으로 자바스크립트 소스코드는 실행될 때마다 처리되므로 자바스크립트가 *해석된다*고 주장합니다. 그러나 그것은 정확하지 않습니다. 자바스크립트 엔진은 실제로 프로그램을 즉시 *컴파일* 한 다음 컴파일 된 코드를 즉시 실행합니다.
 
-**Note:** For more information on JavaScript compiling, see the first two chapters of the *Scope & Closures* title of this series.
+**참고:** 자바스크립트 컴파일에 대한 자세한 내용은 이 시리즈의 *Scope & Closures* 처음 두 장을 참조하십시오.
 
-## Try It Yourself
+## 직접 해보기
 
-This chapter is going to introduce each programming concept with simple snippets of code, all written in JavaScript (obviously!).
+이 장에서는 모든 프로그래밍 개념을 간단한 코드 스니펫으로 소개 할 것이며, 모두 자바스크립트로 작성됩니다.(분명히!)
 
-It cannot be emphasized enough: while you go through this chapter -- and you may need to spend the time to go over it several times -- you should practice each of these concepts by typing the code yourself. The easiest way to do that is to open up the developer tools console in your nearest browser (Firefox, Chrome, IE, etc.).
+충분히 강조할 수 는 없지만, 이 장을 살펴 보면서 몇 번에 걸쳐 시간을 할애해야 할 수도 있습니다. 코드를 직접 입력하여 이러한 개념을 연습해야 합니다. 가장 쉬운 방법은 가장 최신 버전의 브라우저(Firefox, Chrome, IE 등)에서 개발자 도구 콘솔을 여는 것입니다.
 
-**Tip:** Typically, you can launch the developer console with a keyboard shortcut or from a menu item. For more detailed information about launching and using the console in your favorite browser, see "Mastering The Developer Tools Console" (http://blog.teamtreehouse.com/mastering-developer-tools-console). To type multiple lines into the console at once, use `<shift> + <enter>` to move to the next new line. Once you hit `<enter>` by itself, the console will run everything you've just typed.
+**팁** 일반적으로 키보드 단축키 또는 메뉴 항목을 사용하여 개발자 콘솔을 시작할 수 있습니다.
+자주 사용하는 브라우저에서 콘솔을 시작하고 사용하는 방법에 대한 자세한 내용은 "개발자 도구 콘솔 완전정복"(http://blog.teamtreehouse.com/mastering-developer-tools-console)을 참조하십시오. 한 번에 여러 행을 콘솔에 입력하려면 `<shift> + <enter>`를 사용하여 다음 행으로 이동하십시오. `<enter>`만 실행하면 콘솔은 방금 입력한 모든 것을 실행합니다.
 
-Let's get familiar with the process of running code in the console. First, I suggest opening up an empty tab in your browser. I prefer to do this by typing `about:blank` into the address bar. Then, make sure your developer console is open, as we just mentioned.
+콘솔에서 코드를 실행하는 프로세스에 익숙해지십시오. 먼저 브라우저에서 빈 탭을 열어 보시기 바랍니다. 주소 표시 줄에 `about:blank`를 입력하면 됩니다. 방금 언급한 바와 같이 개발자 콘솔이 열려 있는지 확인하십시오.
 
-Now, type this code and see how it runs:
+이제 코드를 입력하고 실행방법을 확인하십시오:
 
 ```js
 a = 21;
@@ -104,81 +105,82 @@ b = a * 2;
 
 console.log( b );
 ```
-
-Typing the preceding code into the console in Chrome should produce something like the following:
+앞의 코드를 Chrome의 콘솔에 입력하면 다음과 같은 결과가 나타납니다.
 
 <img src="fig1.png" width="500">
 
-Go on, try it. The best way to learn programming is to start coding!
+어서 해보세요. 프로그래밍을 배우는 가장 좋은 방법은 코딩을 시작하는 것입니다!
 
-### Output
+### 출력
 
-In the previous code snippet, we used `console.log(..)`. Briefly, let's look at what that line of code is all about.
+이전 코드에서 `console.log(..)`를 사용했습니다. 간단히 말하면, 그 코드 라인이 무엇을 의미하는지 살펴 보겠습니다.
 
-You may have guessed, but that's exactly how we print text (aka *output* to the user) in the developer console. There are two characteristics of that statement that we should explain.
+짐작할 수 있겠지만 개발자 콘솔에서 텍스트(사용자에게 *출력*)를 인쇄하는 방법입니다. 그 구문에는 우리가 설명해야 할 두가지 특징이 있습니다.
 
-First, the `log( b )` part is referred to as a function call (see "Functions"). What's happening is we're handing the `b` variable to that function, which asks it to take the value of `b` and print it to the console.
+먼저, `log( b )` 부분을 함수 호출이라고 합니다. ("함수" 참조) 우리는 `b` 변수를 그 함수에 건네주고, b의 값을 받아서 콘솔에 출력 할 것을 요구합니다.
 
-Second, the `console.` part is an object reference where the `log(..)` function is located. We cover objects and their properties in more detail in Chapter 2.
+두번째로, `콘솔` 파트는 `log(..)`함수가 있는 객체 참조입니다. 우리는 객체와 그 속성을 2장에서 자세히 다룹니다.
 
-Another way of creating output that you can see is to run an `alert(..)` statement. For example:
+출력을 생성하는 또 다른 방법은 `alert(..)`문을 실행 하는 것입니다.
+예:
 
 ```js
 alert( b );
 ```
+이를 실행하면 출력을 콘솔에 출력하는 대신 `b` 변수의 내용이 있는 "OK" 상자가 나타납니다. 그러나 `console.log(..)`를 사용하면 브라우저 인터페이스를 방해하지 않고 즉지 많은 값을 출력 할 수 있기 때문에 일반적으로 `alert(..)`을 사용하는 것보다 콘솔에서 프로그램 코딩 및 실행에 대해 배우게 됩니다.
 
-If you run that, you'll notice that instead of printing the output to the console, it shows a popup "OK" box with the contents of the `b` variable. However, using `console.log(..)` is generally going to make learning about coding and running your programs in the console easier than using `alert(..)`, because you can output many values at once without interrupting the browser interface.
+이 책에서는 `console.log(..)`를 사용하여 출력합니다.
 
-For this book, we'll use `console.log(..)` for output.
+### 입력
 
-### Input
+출력물에 대해 논의하는 동안 *입력*(예: 사용자로부터 정보 수신)에 대해 궁금할 수 있습니다.
 
-While we're discussing output, you may also wonder about *input* (i.e., receiving information from the user).
+가장 일반적인 방법은 HTML 페이지가 입력할 수 있는 사용자에게 텍스트 상자와 같은 양식 요소를 표시한 다음 JS를 사용하여 해당 값을 프로그램의 변수로 읽는 것입니다.
 
-The most common way that happens is for the HTML page to show form elements (like text boxes) to a user that they can type into, and then using JS to read those values into your program's variables.
-
-But there's an easier way to get input for simple learning and demonstration purposes such as what you'll be doing throughout this book. Use the `prompt(..)` function:
+그러나 이 책 전체에서 수행 할 작업과 같은 간단한 학습 및 데모용 입력을 얻는 더 쉬운 방법이 있습니다. `prompt(..)` 내장함수를 사용하십시오.
 
 ```js
 age = prompt( "Please tell me your age:" );
 
 console.log( age );
 ```
+짐작할 수 있듯이, `prompt(..)`에 전달하는 메시지 - 이 경우, "나이를 적어주세요: "가 팝업에 출력됩니다.
 
-As you may have guessed, the message you pass to `prompt(..)` -- in this case, `"Please tell me your age:"` -- is printed into the popup.
-
-This should look similar to the following:
+이것은 다음과 비슷합니다.
 
 <img src="fig2.png" width="500">
 
-Once you submit the input text by clicking "OK," you'll observe that the value you typed is stored in the `age` variable, which we then *output* with `console.log(..)`:
+"OK"를 클릭하여 입력 텍스트를 제출하면 입력한 값이 `age`변수에 저장되고 `console.log(..)`와 함께 *출력*된다는 것을 알 수 있습니다:
 
 <img src="fig3.png" width="500">
 
-To keep things simple while we're learning basic programming concepts, the examples in this book will not require input. But now that you've seen how to use `prompt(..)`, if you want to challenge yourself you can try to use input in your explorations of the examples.
+기본적인 프로그래밍 개념을 배우는 동안 간단하게 하기 위해 이 책의 예제는 입력 할 필요가 없습니다. 그러나 이제 `prompt(..)`를 사용해 보았습니다. 자신에게 도전하고 싶다면 예제를 탐색할 때 입력을 시도해도 됩니다.
 
-## Operators
+## 연산자
 
-Operators are how we perform actions on variables and values. We've already seen two JavaScript operators, the `=` and the `*`.
+연산자는 변수와 값에 대한 작업을 수행하는 방법입니다. 이미 두 개의 연산자 `*`, `=`를 보았습니다. 
 
+`*` 연산자는 수학적 곱셈을 수행합니다. 충분히 간단합니다. 그렇죠?
 The `*` operator performs mathematic multiplication. Simple enough, right?
 
-The `=` equals operator is used for *assignment* -- we first calculate the value on the *right-hand side* (source value) of the `=` and then put it into the variable that we specify on the *left-hand side* (target variable).
+`=` 동등 연산자는 *할당*에 사용됩니다. -- 먼저 `=`의 *오른쪽* (소스 값)에 있는 값을 계산 한 다음 *왼쪽*(목표 변수)에 넣습니다.
 
-**Warning:** This may seem like a strange reverse order to specify assignment. Instead of `a = 42`, some might prefer to flip the order so the source value is on the left and the target variable is on the right, like `42 -> a` (this is not valid JavaScript!). Unfortunately, the `a = 42` ordered form, and similar variations, is quite prevalent in modern programming languages. If it feels unnatural, just spend some time rehearsing that ordering in your mind to get accustomed to it.
+**경고:** 이것은 지정을 지정하는 이상한 역순처럼 보일 수 있습니다. `a = 42` 대신에 일부는 순서를 뒤집어서 소스 값이 왼쪽에 있고 목표 변수가 오른쪽에 있는  `42 -> a`(유효하지 않은 자바스크립트!)와 같은 것을 선호 할 수 있습니다. 불행히도 `a = 42` 주문형 및 유사 변형은 현대 프로그래밍 언어에 널리 보급되어 있습니다. 부자연스럽다고 느낄 경우 마음에 그 주문을 연습하면서 시간을 들여 익숙해지십시오.
 
-Consider:
+고려사항:
 
 ```js
 a = 2;
 b = a + 1;
 ```
 
-Here, we assign the `2` value to the `a` variable. Then, we get the value of the `a` variable (still `2`), add `1` to it resulting in the value `3`, then store that value in the `b` variable.
+여기서는 변수에 `2` 값을 할당합니다. 그런 다음 변수 (여전히 `2`)의 값을 가져 와서 결과 값 `1`을 `3`으로 만든 다음 그 값을 변수 `b`에 저장합니다.
 
-While not technically an operator, you'll need the keyword `var` in every program, as it's the primary way you *declare* (aka *create*) *var*iables (see "Variables").
+기술적으로 연산자는 아니지만 모든 프로그램에서 키워드 `var`가 필요합니다. 변수를 *선언*(일명 *생성*)하는 주요 방법입니다. ("변수"참조) 
 
-You should always declare the variable by name before you use it. But you only need to declare a variable once for each *scope* (see "Scope"); it can be used as many times after that as needed. For example:
+변수를 사용하기 전에 항상 변수를 이름으로 선언해야합니다. 그러나 각 *범위*에 대해 한 번만 변수를 선언하면 됩니다. ("스코프" 참조) 필요할 때마다 여러 번 사용할 수 있습니다. 
+
+예:
 
 ```js
 var a = 20;
@@ -188,14 +190,14 @@ a = a * 2;
 
 console.log( a );	// 42
 ```
+다음은 자바스크립트에서 가장 일반적인 연산자 중 일부입니다:
 
-Here are some of the most common operators in JavaScript:
+* 할당: `a = 2`의 경우에서와 같이 `=`.
+* 수학: `a * 3`의 경우에서와 같이`+` (더하기), `-` (빼기), `*` (곱하기), `/` (나누기).
+* 복합 할당: `a++` (`a = a + 1`와 동일)의 경우에서와 같이 `+=`, `-=`, `*=`, `/=` 수학 연산과 대입 연산자를 결합하는 복합 연산자입니다.
+* 객체 속성 액세스: `console.log()`의 경우에서와 같이 `.`
 
-* Assignment: `=` as in `a = 2`.
-* Math: `+` (addition), `-` (subtraction), `*` (multiplication), and `/` (division), as in `a * 3`.
-* Compound Assignment: `+=`, `-=`, `*=`, and `/=` are compound operators that combine a math operation with assignment, as in `a += 2` (same as `a = a + 2`).
-* Increment/Decrement: `++` (increment), `--` (decrement), as in `a++` (similar to `a = a + 1`).
-* Object Property Access: `.` as in `console.log()`.
+  객체는 속성이라는 특정 명명된 위치에세서 다른 값을 보유하는 값입니다. `obj.a`는 `a`라는 속성을 가진 `obj`라는 객체 값을 의미합니다.
 
    Objects are values that hold other values at specific named locations called properties. `obj.a` means an object value called `obj` with a property of the name `a`. Properties can alternatively be accessed as `obj["a"]`. See Chapter 2.
 * Equality: `==` (loose-equals), `===` (strict-equals), `!=` (loose not-equals), `!==` (strict not-equals), as in `a == b`.
