@@ -280,27 +280,27 @@ console.log( b );	// 42
 
 **참고 :** 강제 변환에 대한 자세한 내용은 이 책의 2 장과 이 시리즈의 *유형 및 문법* 4 장을 참조하십시오.
 
-## Code Comments
+## 코드 주석
 
-The phone store employee might jot down some notes on the features of a newly released phone or on the new plans her company offers. These notes are only for the employee -- they're not for customers to read. Nevertheless, these notes help the employee do her job better by documenting the hows and whys of what she should tell customers.
+전화 매장 직원은 새로 출시 된 휴대 전화의 기능이나 회사에서 제공하는 새로운 계획에 대한 메모를 적어 둘 수 있습니다. 그것은 고객이 읽을 수있는 것이 아닙니다. 그럼에도 불구하고 이 메모는 직원이 고객에게 무엇을 말해야 하는지를 문서화함으로써 직원이 자신의 업무를 더 잘 수행 할 수 있도록 도와줍니다.
 
-One of the most important lessons you can learn about writing code is that it's not just for the computer. Code is every bit as much, if not more, for the developer as it is for the compiler.
+코드 작성에 대해 배울 수있는 가장 중요한 교훈 중 하나는 컴퓨터에만 해당되는 것이 아니라는 것입니다. 코드는 컴파일러와 마찬가지로 개발자에게 더 많은 것은 아니지만 모든 비트만큼이나 중요합니다.
 
-Your computer only cares about machine code, a series of binary 0s and 1s, that comes from *compilation*. There's a nearly infinite number of programs you could write that yield the same series of 0s and 1s. The choices you make about how to write your program matter -- not only to you, but to your other team members and even to your future self.
+당신의 컴퓨터는 *컴파일*에서 오는 기계 코드, 일련의 이진 0과 1만을 염려합니다. 당신이 쓸 수있는 거의 무한한 숫자의 프로그램이 있습니다. 같은 프로그램을 만들어 낼 수 있습니다. 프로그램 문제를 작성하는 방법에 대한 선택은 당신 뿐 아니라 다른 팀원에게도 중요합니다.
 
-You should strive not just to write programs that work correctly, but programs that make sense when examined. You can go a long way in that effort by choosing good names for your variables (see "Variables") and functions (see "Functions").
+올바르게 작동하는 프로그램을 작성하는 것뿐만 아니라 검사 할 때 의미가있는 프로그램을 작성해야합니다. 변수에 대한 올바른 이름 ("변수"참조)과 함수 ("함수"참조)를 선택하면 많은 노력을 기울일 수 있습니다.
 
-But another important part is code comments. These are bits of text in your program that are inserted purely to explain things to a human. The interpreter/compiler will always ignore these comments.
+그러나 또 다른 중요한 부분은 코드 주석입니다. 이것들은 순수하게 인간에게 설명하기 위해 삽입되는 텍스트입니다. 인터프리터 / 컴파일러는 항상 이러한 주석을 무시합니다.
 
-There are lots of opinions on what makes well-commented code; we can't really define absolute universal rules. But some observations and guidelines are quite useful:
+잘 설명 된 코드를 작성하는 것에 대한 많은 의견이 있습니다. 우리는 절대적 보편 규칙을 실제로 정의 할 수 없습니다. 그러나 일부 관찰 및 가이드 라인은 매우 유용합니다:
 
-* Code without comments is suboptimal.
-* Too many comments (one per line, for example) is probably a sign of poorly written code.
-* Comments should explain *why*, not *what*. They can optionally explain *how* if that's particularly confusing.
+* 주석이 없는 코드는 차선책입니다.
+* 주석이 너무 많으면 (예를 들어, 한 줄에 하나씩) 아마도 잘못 작성된 코드의 표시 일 것입니다.
+* 주석은 *무엇*이 아니라 *왜*를 설명해야합니다. 특히 혼란스럽다면 그것들은 선택적으로 *어떻게*를 설명할 수 있습니다.
 
-In JavaScript, there are two types of comments possible: a single-line comment and a multiline comment.
+자바스크립트에서는 한 줄 주석과 여러 줄 주석 두 가지 주석 유형이 있습니다.
 
-Consider:
+고려사항:
 
 ```js
 // This is a single-line comment
@@ -311,17 +311,17 @@ Consider:
                       */
 ```
 
-The `//` single-line comment is appropriate if you're going to put a comment right above a single statement, or even at the end of a line. Everything on the line after the `//` is treated as the comment (and thus ignored by the compiler), all the way to the end of the line. There's no restriction to what can appear inside a single-line comment.
+`//` 한 줄짜리 주석은 단일 문장 바로 위에 주석을 달거나 줄의 끝 부분에 주석을 넣을 때 적합합니다. `//` 뒤에 오는 줄의 모든 내용은 줄 끝까지의 주석으로 처리됩니다 (따라서 컴파일러에서 무시됩니다). 한 줄짜리 주석 안에 무엇이 나타날 수 있는지는 아무런 제한이 없습니다.
 
-Consider:
+고려사항:
 
 ```js
 var a = 42;		// 42 is the meaning of life
 ```
 
-The `/* .. */` multiline comment is appropriate if you have several lines worth of explanation to make in your comment.
+`/ * .. * /` multiline 주석은 주석에 여러 줄의 설명을 할 수 있다면 적절합니다.
 
-Here's a common usage of multiline comments:
+다음은 여러 줄 주석의 일반적인 사용법입니다:
 
 ```js
 /* The following value is used because
@@ -330,15 +330,16 @@ Here's a common usage of multiline comments:
 var a = 42;
 ```
 
-It can also appear anywhere on a line, even in the middle of a line, because the `*/` ends it. For example:
+또한 줄의 중간에 있더라도 줄의 아무 곳에 나 나타날 수 있습니다. `* /`는 끝나기 때문입니다. 
+예:
 
 ```js
 var a = /* arbitrary value */ 42;
 
 console.log( a );	// 42
 ```
+여러 줄 주석문 안에 나타날 수없는 유일한 것은 주석을 끝내기 위해 해석되기 때문에 `* /`입니다.
 
-The only thing that cannot appear inside a multiline comment is a `*/`, because that would be interpreted to end the comment.
 
 You will definitely want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!
 
