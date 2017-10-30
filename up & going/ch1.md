@@ -586,13 +586,15 @@ for (var i = 0; i <= 9; i = i + 1) {
 
 암시적 조건 테스트는 모든 속성이 처리되었는지 여부와 같은 객체의 속성 (2 장 참조)과 같이 특정 값을 반복하기 위한 다른 특수한 루프 양식이 있습니다. "조건이 실패 할 때까지 루프"개념은 루프의 형식에 관계없이 유지됩니다.
 
-## Functions
+## 함수
 
-The phone store employee probably doesn't carry around a calculator to figure out the taxes and final purchase amount. That's a task she needs to define once and reuse over and over again. Odds are, the company has a checkout register (computer, tablet, etc.) with those "functions" built in.
+전화 상점 직원은 아마도 세금 및 최종 구매 금액을 계산하기 위해 계산기를 들고 다니지 않습니다. 그것은 한 번 정의하고 반복해서 사용해야하는 작업입니다. 가능성은 회사에 "기능들"이 내장 된 계산대 (컴퓨터, 태블릿 등)가 있습니다.
 
-Similarly, your program will almost certainly want to break up the code's tasks into reusable pieces, instead of repeatedly repeating yourself repetitiously (pun intended!). The way to do this is to define a `function`.
+비슷하게, 프로그램은 반복적으로 반복적으로 반복하는 대신(말장난!) 코드의 작업을 재사용 가능한 부분으로 분해하려고 합니다. 이를 수행하는 방법은 `함수`를 정의하는 것입니다.
 
-A function is generally a named section of code that can be "called" by name, and the code inside it will be run each time. Consider:
+함수는 일반적으로 이름으로 "호출"할 수있는 코드의 명명 된 섹션이며 그 안에있는 코드는 매번 실행됩니다.
+
+고려사항:
 
 ```js
 function printAmount() {
@@ -608,7 +610,7 @@ amount = amount * 2;
 printAmount(); // "199.98"
 ```
 
-Functions can optionally take arguments (aka parameters) -- values you pass in. And they can also optionally return a value back.
+함수는 선택적으로 인수 (일명 매개 ​​변수) - 전달한 값을 취할 수 있습니다. 또한 값을 선택적으로 반환 할 수도 있습니다.
 
 ```js
 function printAmount(amt) {
@@ -627,11 +629,11 @@ amount = formatAmount();
 console.log( amount );			// "$99.99"
 ```
 
-The function `printAmount(..)` takes a parameter that we call `amt`. The function `formatAmount()` returns a value. Of course, you can also combine those two techniques in the same function.
+함수 `printAmount (..)`는 `amt`라고 부르는 매개 변수를 취합니다. `formatAmount()` 함수는 값을 반환합니다. 물론 동일한 기능에서 두 기술을 결합 할 수도 있습니다.
 
-Functions are often used for code that you plan to call multiple times, but they can also be useful just to organize related bits of code into named collections, even if you only plan to call them once.
+함수는 여러 번 호출 할 계획 인 코드에 자주 사용되지만 한 번만 호출 할 계획이라 할지라도 관련 코드 비트를 명명 된 컬렉션으로 구성하는 데 유용 할 수 있습니다. 
 
-Consider:
+고려사항: 
 
 ```js
 const TAX_RATE = 0.08;
@@ -651,15 +653,15 @@ amount = calculateFinalPurchaseAmount( amount );
 console.log( amount.toFixed( 2 ) );		// "107.99"
 ```
 
-Although `calculateFinalPurchaseAmount(..)` is only called once, organizing its behavior into a separate named function makes the code that uses its logic (the `amount = calculateFinal...` statement) cleaner. If the function had more statements in it, the benefits would be even more pronounced.
+`calculateFinalPurchaseAmount(..)`는 한 번만 호출되지만 별도의 명명 된 함수로 동작을 구성하면 로직을 사용하는 코드가 만들어집니다 (`amount = calculateFinal ...` 문). 함수에 더 많은 구문이 포함되어 있다면 이 점은 더욱 분명해질 것입니다.
 
-### Scope
+### 스코프
 
-If you ask the phone store employee for a phone model that her store doesn't carry, she will not be able to sell you the phone you want. She only has access to the phones in her store's inventory. You'll have to try another store to see if you can find the phone you're looking for.
+전화 상점 직원에게 매장에서 판매하지 않는 전화 모델을 요청하면 원하는 전화를 판매 할 수 없습니다. 그녀는 매장의 인벤토리에 있는 전화에만 액세스 할 수 있습니다. 찾고 있는 전화를 찾을 수 있는지 알아보기 위해 다른 상점을 방문해야합니다.
 
-Programming has a term for this concept: *scope* (technically called *lexical scope*). In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's *scoped* variables.
+프로그래밍에는이 개념의 용어 인 *스코프* (기술적으로 *렉시컬 스코프* 라고 함)가 있습니다. 자바스크립트에서는 각 함수가 자체 범위를 가져옵니다. 스코프는 기본적으로 변수의 모음 일뿐만 아니라 변수가 이름으로 어떻게 액세스되는지에 대한 규칙입니다. 해당 함수 내의 코드만 해당 함수의 *스코프* 변수에 액세스 할 수 있습니다.
 
-A variable name has to be unique within the same scope -- there can't be two different `a` variables sitting right next to each other. But the same variable name `a` could appear in different scopes.
+변수 이름은 동일한 스코프 내에서 고유해야합니다. 서로 다른 `a` 변수가 두 개씩 나란히 있을 수 없습니다. 그러나 동일한 변수 이름 `a` 가 다른 범위에 나타날 수 있습니다.
 
 ```js
 function one() {
