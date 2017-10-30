@@ -270,13 +270,13 @@ console.log( b );	// 42
 문자열 `"99.99"`와 숫자 `99.99`를 비교할 때 대부분의 사람들은 그들이 동등하다는 것에 동의 할 것입니다. 하지만 정확히 똑같지는 않습니까? 두 가지 다른 표현, 즉 두 가지 *유형*에서 동일한 값입니다. 당신은 그들이 "느슨하게 동등하다"고 말할 수 있겠습니까?
 
 
-이러한 일반적인 상황에서 당신을 도울 수 있도록 자바스크립트는 때로는 값을 입력하여 일치하는 유형에 *암묵적으로* 강제합니다.
+이러한 일반적인 상황에서 당신을 도울 수 있도록 자바스크립트는 때로는 값을 입력하여 일치하는 유형에 *암시적으로* 강제합니다.
 
 따라서 `==` 느슨한 equals 연산자를 사용하여 비교 `"99.99"== 99.99`를 만들면 자바스크립트는 왼쪽 `"99.99"`를 `숫자 99.99`로 변환합니다. 비교는 `99.99 == 99.99`가되는데, 이는 `참`입니다.
 
-당신이 그 행동을 지배하는 규칙을 배우는 데 시간을 할애하지 않았다면 암묵적인 강제 변환은 혼란을 야기 할 수 있습니다. 대부분의 JS 개발자는 절대 사용하지 않으므로 암묵적인 강제가 혼란스럽고 예기치 않은 버그가 있는 프로그램에 피해를 입힙니다. 따라서 피해야합니다. 때로는 언어 디자인의 결함으로 불리기도 합니다.
+당신이 그 행동을 지배하는 규칙을 배우는 데 시간을 할애하지 않았다면 암시적인 강제 변환은 혼란을 야기 할 수 있습니다. 대부분의 JS 개발자는 절대 사용하지 않으므로 암시적인 강제가 혼란스럽고 예기치 않은 버그가 있는 프로그램에 피해를 입힙니다. 따라서 피해야합니다. 때로는 언어 디자인의 결함으로 불리기도 합니다.
 
-그러나 암묵적인 강제 변환은 *배울 수 있는* 메커니즘이며, 또한 자바스크립트 프로그래밍을 중요하게 생각하는 사람이 *배워야합니다.* 규칙을 배운 후에 혼란 스러울뿐만 아니라 실제로 프로그램을 더 잘 만들 수 있습니다! 그 노력은 그만한 가치가 있습니다.
+그러나 암시적인 강제 변환은 *배울 수 있는* 메커니즘이며, 또한 자바스크립트 프로그래밍을 중요하게 생각하는 사람이 *배워야합니다.* 규칙을 배운 후에 혼란 스러울뿐만 아니라 실제로 프로그램을 더 잘 만들 수 있습니다! 그 노력은 그만한 가치가 있습니다.
 
 **참고 :** 강제 변환에 대한 자세한 내용은 이 책의 2 장과 이 시리즈의 *유형 및 문법* 4 장을 참조하십시오.
 
@@ -371,7 +371,7 @@ console.log( amount );		// "$199.98"
 ```
 `amount` 변수는 `99.99`를 갖고 있는 채로 시작하여 `amount * 2`, `199.98`의 `숫자` 결과를 갖게 됩니다.
 
-첫 번째 `console.log(..)` 명령은 *암묵적으로* `숫자` 값을 `문자열`로 강제 변환하여 출력하여 인쇄합니다.
+첫 번째 `console.log(..)` 명령은 *암시적으로* `숫자` 값을 `문자열`로 강제 변환하여 출력하여 인쇄합니다.
 
 그런 다음 명령문 `amount = "$" + String(amount)`는 *명시적으로* `199.98` 값을 `문자열`로 강제 변환하고 시작 부분에 `"$"`문자를 추가합니다. 이 시점에서 `amount`는 이제 문자열 값 `"$199.98"`을 보유하므로 두 번째 `console.log(..)`문은 이를 인쇄하기 위해 강제 변환 할 필요가 없습니다.
 
@@ -421,11 +421,13 @@ var amount = 99.99;
 
 **참고:** 변수에서 다른 값을 프로그램에서 사용하는 방법에 대한 자세한 내용은 이 시리즈의 *유형 및 문법* 제목을 참조하십시오.
 
-## Blocks
+## 블록
 
-The phone store employee must go through a series of steps to complete the checkout as you buy your new phone.
+전화 상점 직원은 새 전화를 구입할 때 일련의 단계를 수행하여 결제를 완료해야 합니다.
 
-Similarly, in code we often need to group a series of statements together, which we often call a *block*. In JavaScript, a block is defined by wrapping one or more statements inside a curly-brace pair `{ .. }`. Consider:
+마찬가지로, 코드에서 종종 일련의 명령문을 그룹으로 묶어야합니다. 우리는 종종 블록이라고 부릅니다. 자바스크립트에서 *블록*은 중괄호 쌍 `{ .. }` 안에 하나 이상의 명령문을 래핑하여 정의됩니다. 
+
+고려사항:
 
 ```js
 var amount = 99.99;
@@ -437,7 +439,9 @@ var amount = 99.99;
 }
 ```
 
-This kind of standalone `{ .. }` general block is valid, but isn't as commonly seen in JS programs. Typically, blocks are attached to some other control statement, such as an `if` statement (see "Conditionals") or a loop (see "Loops"). For example:
+이러한 종류의 독립실행형 `{ .. }` 일반 블록은 유효하지만 JS 프로그램에서 일반적으로 볼 수 있는 것은 아닙니다. 일반적으로 블록은 `if` 문("조건부" 참조) 또는 루프("루프" 참조)와 같은 다른 제어문에 첨부됩니다. 
+
+예: 
 
 ```js
 var amount = 99.99;
@@ -449,17 +453,18 @@ if (amount > 10) {			// <-- block attached to `if`
 }
 ```
 
-We'll explain `if` statements in the next section, but as you can see, the `{ .. }` block with its two statements is attached to `if (amount > 10)`; the statements inside the block will only be processed if the conditional passes.
+다음 절의 `if` 문을 설명하지만, 두 개의 명령문이있는 `{..}` 블록은 `if (amount> 10)`에 첨부됩니다. 조건부가 통과하는 경우에만 블록 내부의 명령문이 처리됩니다.
 
-**Note:** Unlike most other statements like `console.log(amount);`, a block statement does not need a semicolon (`;`) to conclude it.
+**참고:** `console.log(amount);`와 같은 대부분의 다른 명령문과는 달리, 블록 명령문은 이를 종결하기 위해 세미콜론(`;`)이 필요하지 않습니다.
 
-## Conditionals
+## 조건문
 
-"Do you want to add on the extra screen protectors to your purchase, for $9.99?" The helpful phone store employee has asked you to make a decision. And you may need to first consult the current *state* of your wallet or bank account to answer that question. But obviously, this is just a simple "yes or no" question.
+"9.99 달러에 구입하신 화면 보호 장치를 추가하고 싶습니까?" 도움이 되는 전화 상점 직원이 귀하에게 결정을 요청했습니다. 그리고 그 질문에 대답하기 위해 지갑이나 은행 계좌의 현재 *상태*를 먼저 확인해야 할 수도 있습니다. 그러나 분명히 이것은 단순한 "예 또는 아니오"질문 일뿐입니다.
 
-There are quite a few ways we can express *conditionals* (aka decisions) in our programs.
+프로그램에서 *조건문* (일명 결정)을 표현할 수있는 몇 가지 방법이 있습니다.
 
-The most common one is the `if` statement. Essentially, you're saying, "*If* this condition is true, do the following...". For example:
+가장 일반적인 것은 `if` 문입니다. 근본적으로 말하면, "이 조건이 사실*이라면*, 다음을 수행하십시오 ...". 
+예 :
 
 ```js
 var bank_balance = 302.13;
@@ -470,9 +475,11 @@ if (amount < bank_balance) {
 }
 ```
 
-The `if` statement requires an expression in between the parentheses `( )` that can be treated as either `true` or `false`. In this program, we provided the expression `amount < bank_balance`, which indeed will either evaluate to `true` or `false` depending on the amount in the `bank_balance` variable.
+`if` 문은 `true` 또는 `false`로 처리 할 수있는 괄호 `()` 사이의 표현식을 필요로합니다. 이 프로그램에서는 표현 `amount < bank_balance`를 제공했습니다. 실제로 `bank_balance` 변수의 양에 따라 `true` 또는 `false`로 평가됩니다.
 
-You can even provide an alternative if the condition isn't true, called an `else` clause. Consider:
+`else` 절로 불리는 조건이 참이 아니면 대안을 제공 할 수도 있습니다. 
+
+고려사항:
 
 ```js
 const ACCESSORY_PRICE = 9.99;
@@ -493,25 +500,25 @@ else {
 }
 ```
 
-Here, if `amount < bank_balance` is `true`, we'll print out `"I'll take the accessory!"` and add the `9.99` to our `amount` variable. Otherwise, the `else` clause says we'll just politely respond with `"No, thanks."` and leave `amount` unchanged.
+여기 `amount < bank_balance`가 `true` 인 경우, `"내가 액세서리를 가져갈 것입니다!"`라고 인쇄 할 것입니다. 우리 `amount` 변수에 `9.99`를 추가하십시오. 그렇지 않으면, `else` 절은 우리가 정중하게 `"아니, 고마워."`라고 대답 할 것이라고 말합니다. 그리고 `amount`를 변경하지 않고 끝날 것입니다.
 
-As we discussed in "Values & Types" earlier, values that aren't already of an expected type are often coerced to that type. The `if` statement expects a `boolean`, but if you pass it something that's not already `boolean`, coercion will occur.
+이전에 "값 및 유형"에서 논의했듯이 이미 예상 유형이 아닌 값은 종종 해당 유형으로 강제 변환됩니다. `if` 문은 `부울`을 기대하지만, 이미 `부울`이 아닌 무언가를 전달하면 강제 변환이 발생합니다.
 
-JavaScript defines a list of specific values that are considered "falsy" because when coerced to a `boolean`, they become `false` -- these include values like `0` and `""`. Any other value not on the "falsy" list is automatically "truthy" -- when coerced to a `boolean` they become `true`. Truthy values include things like `99.99` and `"free"`. See "Truthy & Falsy" in Chapter 2 for more information.
+자바스크립트는 `부울`로 강요 될 때 `false`가 될 때 `0`및 `""`와 같은 값을 포함하기 때문에 "거짓"으로 간주되는 특정 값의 목록을 정의합니다. "거짓" 목록에 없는 다른 값은 자동으로 "진실"입니다. `부울`로 강요 될 때 그것은 `true` 입니다. 진리 값에는 `99.99`와 `"무료"`같은 것이 포함됩니다. 자세한 내용은 2 장의 "참과 거짓"을 참조하십시오.
 
-*Conditionals* exist in other forms besides the `if`. For example, the `switch` statement can be used as a shorthand for a series of `if..else` statements (see Chapter 2). Loops (see "Loops") use a *conditional* to determine if the loop should keep going or stop.
+*조건문*은 `if` 이외의 다른 형식으로 존재합니다. 예를 들면, `switch` 문은 일련의 `if..else` 문에 대한 줄임말로 사용할 수 있습니다 (2 장 참조). 루프 ( "루프"참조)는 *조건문*을 사용하여 루프를 계속 진행할지 또는 중지할지 결정합니다.
 
-**Note:** For deeper information about the coercions that can occur implicitly in the test expressions of *conditionals*, see Chapter 4 of the *Types & Grammar* title of this series.
+**참고:** *조건문*의 테스트 표현식에서 암시적으로 발생할 수있는 강제 변환에 대한 자세한 내용은 이 시리즈의 *유형 및 문법* 4 장을 참조하십시오.
 
-## Loops
+## 루프
 
-During busy times, there's a waiting list for customers who need to speak to the phone store employee. While there's still people on that list, she just needs to keep serving the next customer.
+바쁜 시간에는 전화 상점 직원과 통화해야하는 고객을위한 대기자 명단이 있습니다. 그 목록에 여전히 사람들이 있지만, 그녀는 다음 고객에게 계속해서 봉사해야합니다.
 
-Repeating a set of actions until a certain condition fails -- in other words, repeating only while the condition holds -- is the job of programming loops; loops can take different forms, but they all satisfy this basic behavior.
+특정 조건이 실패 할 때까지 일련의 동작을 반복합니다. 즉, 조건이 유지되는 동안 만 반복하는 것은 프로그래밍 루프의 작업입니다. 루프는 다른 형태를 취할 수 있지만 모두 기본 동작을 만족시킵니다.
 
-A loop includes the test condition as well as a block (typically as `{ .. }`). Each time the loop block executes, that's called an *iteration*.
+루프는 테스트 조건과 블록 (일반적으로 `{..}`과 같이)을 포함합니다. 루프 블록이 실행될 때마다 이를 *반복*이라고합니다.
 
-For example, the `while` loop and the `do..while` loop forms illustrate the concept of repeating a block of statements until a condition no longer evaluates to `true`:
+예시는 `while` 루프 및 `do..while` 루프 양식은 조건이 더 이상 `true`가 아닌 것으로 판단될 때까지 명령문 블록을 반복하는 개념을 보여줍니다:
 
 ```js
 while (numOfCustomers > 0) {
@@ -533,19 +540,19 @@ do {
 } while (numOfCustomers > 0);
 ```
 
-The only practical difference between these loops is whether the conditional is tested before the first iteration (`while`) or after the first iteration (`do..while`).
+이러한 루프 간의 유일한 차이점은 조건부가 첫 번째 반복 전에 (`while`) 또는 첫 번째 반복 후에 (`do..while`) 테스트되는지 여부입니다.
 
-In either form, if the conditional tests as `false`, the next iteration will not run. That means if the condition is initially `false`, a `while` loop will never run, but a `do..while` loop will run just the first time.
+두 가지 형태 중 하나라도 조건부 테스트가 `false`면 다음 반복이 실행되지 않습니다. 즉, 조건이 처음 `false`이면 `while` 루프는 실행되지 않지만 `do..while` 루프는 처음 실행됩니다.
 
-Sometimes you are looping for the intended purpose of counting a certain set of numbers, like from `0` to `9` (ten numbers). You can do that by setting a loop iteration variable like `i` at value `0` and incrementing it by `1` each iteration.
+때로는 `0`에서 `9` (10 개의 숫자)와 같은 특정 숫자 세트를 계산하는 의도 된 목적을 위해 루핑합니다. 값이 0 인 `i`같은 루프 반복 변수를 설정하고 각 반복마다 `1` 씩 증가시켜 이를 수행 할 수 있습니다.
 
-**Warning:** For a variety of historical reasons, programming languages almost always count things in a zero-based fashion, meaning starting with `0` instead of `1`. If you're not familiar with that mode of thinking, it can be quite confusing at first. Take some time to practice counting starting with `0` to become more comfortable with it!
+**경고:** 다양한 역사적 이유로 프로그래밍 언어는 거의 항상 0부터 시작합니다. `1`대신에 `0`으로 시작하는 것을 의미합니다. 그 사고 방식에 익숙하지 않다면 처음에는 매우 혼란스러울 수 있습니다. 0으로 시작하는 계산을 연습할 시간을 가지십시오.
 
-The conditional is tested on each iteration, much as if there is an implied `if` statement inside the loop.
+루프 내에서 묵시적인 `if`문이 있는 것처럼 조건은 각 반복에서 테스트됩니다.
 
-We can use JavaScript's `break` statement to stop a loop. Also, we can observe that it's awfully easy to create a loop that would otherwise run forever without a `break`ing mechanism.
+자바스크립트의 `break`문을 사용하여 루프를 멈출 수 있습니다. 또한 `break` 매커니즘없이 영원히 돌아갈 수 있는 루프를 만드는 것은 너무나 쉽습니다.
 
-Let's illustrate:
+설명해 보겠습니다:
 
 ```js
 var i = 0;
@@ -563,9 +570,9 @@ while (true) {
 // 0 1 2 3 4 5 6 7 8 9
 ```
 
-**Warning:** This is not necessarily a practical form you'd want to use for your loops. It's presented here for illustration purposes only.
+**경고:** 이것은 반드시 루프에 사용하려는 실용적인 형식은 아닙니다. 여기서는 설명의 목적으로 만 제시되었습니다.
 
-While a `while` (or `do..while`) can accomplish the task manually, there's another syntactic form called a `for` loop for just that purpose:
+ `while` 하는 동안 (또는 `do..while`) 수동으로 작업을 수행 할 수 있지만 그 목적을 위해 `for` 루프라고하는 또 다른 구문 형식이 있습니다:
 
 ```js
 for (var i = 0; i <= 9; i = i + 1) {
@@ -573,12 +580,11 @@ for (var i = 0; i <= 9; i = i + 1) {
 }
 // 0 1 2 3 4 5 6 7 8 9
 ```
+보다시피, 두 경우 모두 조건식 루프 형태의 처음 10회 반복 (`0`부터 `9`까지 `i`값) `i <= 9`는 `true`입니다.  그러나 `i`의 값이 `10`이면 `false`가 됩니다.
 
-As you can see, in both cases the conditional `i <= 9` is `true` for the first 10 iterations (`i` of values `0` through `9`) of either loop form, but becomes `false` once `i` is value `10`.
+`for` 루프에는 초기화 절 (`var i=0`), 조건부 테스트 절 (`i <= 9`), 업데이트 절 (`i = i + 1`) 이라는 세 개의 절이 있습니다. 따라서 루프 반복 횟수를 세는 경우, `for`가 이해하기 쉽고 더 간단한 형식입니다.
 
-The `for` loop has three clauses: the initialization clause (`var i=0`), the conditional test clause (`i <= 9`), and the update clause (`i = i + 1`). So if you're going to do counting with your loop iterations, `for` is a more compact and often easier form to understand and write.
-
-There are other specialized loop forms that are intended to iterate over specific values, such as the properties of an object (see Chapter 2) where the implied conditional test is just whether all the properties have been processed. The "loop until a condition fails" concept holds no matter what the form of the loop.
+암시적 조건 테스트는 모든 속성이 처리되었는지 여부와 같은 객체의 속성 (2 장 참조)과 같이 특정 값을 반복하기 위한 다른 특수한 루프 양식이 있습니다. "조건이 실패 할 때까지 루프"개념은 루프의 형식에 관계없이 유지됩니다.
 
 ## Functions
 
