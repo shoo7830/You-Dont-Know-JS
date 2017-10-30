@@ -340,22 +340,21 @@ console.log( a );	// 42
 ```
 여러 줄 주석문 안에 나타날 수없는 유일한 것은 주석을 끝내기 위해 해석되기 때문에 `* /`입니다.
 
+코드를 주석하는 습관으로 시작하여 프로그래밍 학습을 시작하고 싶을 것입니다. 이 장이 나머지 부분에서는 주석을 사용하여 사물을 설명하는 것을 볼 수 있습니다. 나를 믿으십시오, 당신의 코드를 읽는 모든 사람들은 당신에게 감사할 것입니다.
 
-You will definitely want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!
+## 변수
 
-## Variables
+대부분의 유용한 프로그램은 프로그램 진행 과정에서 변경될 때 값을 추적해야 하며 프로그램의 의도 된 작업이 요구하는 다른 작업을 수행해야 합니다.
 
-Most useful programs need to track a value as it changes over the course of the program, undergoing different operations as called for by your program's intended tasks.
+프로그램에서 그 일을 하는 가장 쉬운 방법은 *변수*라는 심볼 컨테이너에 값을 할당하는 것입니다. 이 컨테이너의 값은 필요에 따라 시간이 지남에 따라 *달라질* 수 있습니다.
 
-The easiest way to go about that in your program is to assign a value to a symbolic container, called a *variable* -- so called because the value in this container can *vary* over time as needed.
+일부 프로그래밍 언어에서는 `숫자` 또는 `문자열`과 같은 특정 유형의 값을 보유할 변수 (컨테이너)를 선언합니다. *정적 유형 지정* 또는 *유형 강제*는 일반적으로 의도하지 않은 값 변환을 방지하여 프로그램 정확성에 대한 이점으로 인용됩니다.
 
-In some programming languages, you declare a variable (container) to hold a specific type of value, such as `number` or `string`. *Static typing*, otherwise known as *type enforcement*, is typically cited as a benefit for program correctness by preventing unintended value conversions.
+다른 언어는 변수 대신 값의 유형을 강조합니다. *동적 유형 지정*이라고도 하는 *약한 유형 지정*을 사용하면 변수가 언제든지 모든 유형의 값을 보유할 수 있습니다. 그것은 일반적으로 하나의 변수가 값 유형을 막론하고 값을 나타낼 수 있게 하여 프로그램 유연성을 위한 이점으로 인용되며 프로그램의 논리 흐름에서 주어진 순간에 걸릴 수 있습니다.
 
-Other languages emphasize types for values instead of variables. *Weak typing*, otherwise known as *dynamic typing*, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.
+자바스크립트는 후자의 방식인 *동적 유형 지정* 을 사용합니다. 즉, 변수는 *유형* 적용 없이 모든 *유형*의 값을 보유할 수 있습니다.
 
-JavaScript uses the latter approach, *dynamic typing*, meaning variables can hold values of any *type* without any *type* enforcement.
-
-As mentioned earlier, we declare a variable using the `var` statement -- notice there's no other *type* information in the declaration. Consider this simple program:
+앞서 언급했듯이 우리는 `var` 문을 사용하여 변수를 선언합니다. 선언에 다른 *유형* 정보가 없다는 것을 알 수 있습니다. 이 간단한 프로그램을 생각해보십시오:
 
 ```js
 var amount = 99.99;
@@ -370,24 +369,23 @@ amount = "$" + String( amount );
 
 console.log( amount );		// "$199.98"
 ```
+`amount` 변수는 `99.99`를 갖고 있는 채로 시작하여 `amount * 2`, `199.98`의 `숫자` 결과를 갖게 됩니다.
 
-The `amount` variable starts out holding the number `99.99`, and then holds the `number` result of `amount * 2`, which is `199.98`.
+첫 번째 `console.log(..)` 명령은 *암묵적으로* `숫자` 값을 `문자열`로 강제 변환하여 출력하여 인쇄합니다.
 
-The first `console.log(..)` command has to *implicitly* coerce that `number` value to a `string` to print it out.
+그런 다음 명령문 `amount = "$" + String(amount)`는 *명시적으로* `199.98` 값을 `문자열`로 강제 변환하고 시작 부분에 `"$"`문자를 추가합니다. 이 시점에서 `amount`는 이제 문자열 값 `"$199.98"`을 보유하므로 두 번째 `console.log(..)`문은 이를 인쇄하기 위해 강제 변환 할 필요가 없습니다.
 
-Then the statement `amount = "$" + String(amount)` *explicitly* coerces the `199.98` value to a `string` and adds a `"$"` character to the beginning. At this point, `amount` now holds the `string` value `"$199.98"`, so the second `console.log(..)` statement doesn't need to do any coercion to print it out.
+자바스크립트 개발자는 `99.99`, `199.98`, `"$199.98"`값 각각에 대해 `amount`변수를 사용할 수 있는 유연성에 주목합니다. 정적 유형 열광자는 amount 유형이 다른 유형이기 때문에 금액의 최종 `"$ 199.98"` 표현을 유지하기 위해 `amountStr`과 같은 별도의 변수를 선호합니다.
 
-JavaScript developers will note the flexibility of using the `amount` variable for each of the `99.99`, `199.98`, and the `"$199.98"` values. Static-typing enthusiasts would prefer a separate variable like `amountStr` to hold the final `"$199.98"` representation of the value, because it's a different type.
+어느 쪽이든, `amount`는 프로그램의 과정에서 변화하는 실행 가치를 지니고 있으며 변수의 주된 목적을 보여줍니다. 그것은 프로그램 *상태*를 관리합니다.
 
-Either way, you'll note that `amount` holds a running value that changes over the course of the program, illustrating the primary purpose of variables: managing program *state*.
+즉, *상태*는 프로그램이 실행될 떄 값의 변경을 추적합니다.
 
-In other words, *state* is tracking the changes to values as your program runs.
+변수의 또 다른 일반적인 용도는 값 설정을 중앙 집중화하는 것입니다. 변수를 값으로 선언하고 해당 값이 프로그램 전체에서 *변경되지 않도록* 하는 경우 더 일반적으로 *상수*라고 합니다.
 
-Another common usage of variables is for centralizing value setting. This is more typically called *constants*, when you declare a variable with a value and intend for that value to *not change* throughout the program.
+이러한 *상수*는 종종 프로그램 상단에 선언되므로 필요한 경우 한 자리에서 값을 변경하는 것이 편리합니다. 일반적으로 상수로 사용되는 자바스크립트 변수는 대문자로 되어 있으며 여러 단어 사이에 밑줄이 `_` 있습니다.
 
-You declare these *constants*, often at the top of a program, so that it's convenient for you to have one place to go to alter a value if you need to. By convention, JavaScript variables as constants are usually capitalized, with underscores `_` between multiple words.
-
-Here's a silly example:
+다음은 어리석은 예입니다:
 
 ```js
 var TAX_RATE = 0.08;	// 8% sales tax
@@ -402,11 +400,11 @@ console.log( amount );				// 215.9784
 console.log( amount.toFixed( 2 ) );	// "215.98"
 ```
 
-**Note:** Similar to how `console.log(..)` is a function `log(..)` accessed as an object property on the `console` value, `toFixed(..)` here is a function that can be accessed on `number` values. JavaScript `number`s aren't automatically formatted for dollars -- the engine doesn't know what your intent is and there's no type for currency. `toFixed(..)` lets us specify how many decimal places we'd like the `number` rounded to, and it produces the `string` as necessary.
+**참고:** `console.log(..)`가 콘솔 값에서 객체 속성으로 엑세스 되는 함수 `log(..)` 와 비슷한 방식으로 `toFixed(..)` 는 숫자 값에서 액세스할 수 있는 함수입니다. 자바스크립트 `숫자`는 자동으로 달러 형식으로 지정되지 않습니다. 엔진은 의도가 무엇인지 알지 못하며 통화 유형이 없습니다. `toFixed(..)`는 소수점 이하 자리수를 지정하고 필요에 따라 `문자열`을 생성합니다.
 
-The `TAX_RATE` variable is only *constant* by convention -- there's nothing special in this program that prevents it from being changed. But if the city raises the sales tax rate to 9%, we can still easily update our program by setting the `TAX_RATE` assigned value to `0.09` in one place, instead of finding many occurrences of the value `0.08` strewn throughout the program and updating all of them.
+`TAX_RATE` 변수는 관행에 의해서만 *일정합니다.* 이 프로그램에는 특별한 변화가 일어나지 않습니다. 그러나 도시가 판매 세율을 9 %로 인상하면, `TAX_RATE` 할당 값을 한 곳에서 `0.09`로 설정하여 프로그램 전체에서 `0.08`의 값을 여러 번 발견하고 모두 업데이트하는 대신 프로그램을 쉽게 업데이트 할 수 있습니다.
 
-The newest version of JavaScript at the time of this writing (commonly called "ES6") includes a new way to declare *constants*, by using `const` instead of `var`:
+이 글을 쓰고있는 시점의 최신 버전의 자바스크립트 (일반적으로 "ES6")에는 `var` 대신 `const`를 사용하여 *상수*를 선언하는 새로운 방법이 포함되어 있습니다:
 
 ```js
 // as of ES6:
@@ -417,11 +415,11 @@ var amount = 99.99;
 // ..
 ```
 
-Constants are useful just like variables with unchanged values, except that constants also prevent accidentally changing value somewhere else after the initial setting. If you tried to assign any different value to `TAX_RATE` after that first declaration, your program would reject the change (and in strict mode, fail with an error -- see "Strict Mode" in Chapter 2).
+상수는 변경되지 않은 값을 가진 변수와 마찬가지로 유용합니다. 단, 상수는 초기 설정 이후 실수로 다른 값을 변경하는 것을 방지합니다. 첫 번째 선언 후에 다른 값을 `TAX_RATE`에 할당하려고하면 프로그램이 변경을 거부합니다. (strict mode에서는 오류와 함께 실패합니다 - 2 장의 "Strict Mode"참조)
 
-By the way, that kind of "protection" against mistakes is similar to the static-typing type enforcement, so you can see why static types in other languages can be attractive!
+그런데 실수에 대한 그런 종류의 "보호"는 정적 타이핑 유형 강제와 비슷하므로 다른 언어의 정적 유형이 왜 매력적인지 알 수 있습니다!
 
-**Note:** For more information about how different values in variables can be used in your programs, see the *Types & Grammar* title of this series.
+**참고:** 변수에서 다른 값을 프로그램에서 사용하는 방법에 대한 자세한 내용은 이 시리즈의 *유형 및 문법* 제목을 참조하십시오.
 
 ## Blocks
 
