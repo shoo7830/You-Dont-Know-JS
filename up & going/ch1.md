@@ -178,7 +178,7 @@ b = a + 1;
 
 기술적으로 연산자는 아니지만 모든 프로그램에서 키워드 `var`가 필요합니다. 변수를 *선언*(일명 *생성*)하는 주요 방법입니다. ("변수"참조) 
 
-변수를 사용하기 전에 항상 변수를 이름으로 선언해야합니다. 그러나 각 *범위*에 대해 한 번만 변수를 선언하면 됩니다. ("스코프" 참조) 필요할 때마다 여러 번 사용할 수 있습니다. 
+변수를 사용하기 전에 항상 변수를 이름으로 선언해야합니다. 그러나 각 *범위*에 대해 한 번만 변수를 선언하면 됩니다. ("범위" 참조) 필요할 때마다 여러 번 사용할 수 있습니다. 
 
 예:
 
@@ -655,23 +655,23 @@ console.log( amount.toFixed( 2 ) );		// "107.99"
 
 `calculateFinalPurchaseAmount(..)`는 한 번만 호출되지만 별도의 명명 된 함수로 동작을 구성하면 로직을 사용하는 코드가 만들어집니다 (`amount = calculateFinal ...` 문). 함수에 더 많은 구문이 포함되어 있다면 이 점은 더욱 분명해질 것입니다.
 
-### 스코프
+### 범위
 
 전화 상점 직원에게 매장에서 판매하지 않는 전화 모델을 요청하면 원하는 전화를 판매 할 수 없습니다. 그녀는 매장의 인벤토리에 있는 전화에만 액세스 할 수 있습니다. 찾고 있는 전화를 찾을 수 있는지 알아보기 위해 다른 상점을 방문해야합니다.
 
-프로그래밍에는이 개념의 용어 인 *스코프* (기술적으로 *렉시컬 스코프* 라고 함)가 있습니다. 자바스크립트에서는 각 함수가 자체 범위를 가져옵니다. 스코프는 기본적으로 변수의 모음 일뿐만 아니라 변수가 이름으로 어떻게 액세스되는지에 대한 규칙입니다. 해당 함수 내의 코드만 해당 함수의 *스코프* 변수에 액세스 할 수 있습니다.
+프로그래밍에는이 개념의 용어 인 *범위* (기술적으로 *어휘 범위* 라고 함)가 있습니다. 자바스크립트에서는 각 함수가 자체 범위를 가져옵니다. 범위는 기본적으로 변수의 모음 일뿐만 아니라 변수가 이름으로 어떻게 액세스되는지에 대한 규칙입니다. 해당 함수 내의 코드만 해당 함수의 *범위* 변수에 액세스 할 수 있습니다.
 
-변수 이름은 동일한 스코프 내에서 고유해야합니다. 서로 다른 `a` 변수가 두 개씩 나란히 있을 수 없습니다. 그러나 동일한 변수 이름 `a` 가 다른 범위에 나타날 수 있습니다.
+변수 이름은 동일한 범위 내에서 고유해야합니다. 서로 다른 `a` 변수가 두 개씩 나란히 있을 수 없습니다. 그러나 동일한 변수 이름 `a` 가 다른 범위에 나타날 수 있습니다.
 
 ```js
 function one() {
-	// this `a` only belongs to the `one()` function
+	// 이`a`는`one ()`함수에만 속합니다
 	var a = 1;
 	console.log( a );
 }
 
 function two() {
-	// this `a` only belongs to the `two()` function
+	// 이`a`는`two ()`함수에만 속합니다
 	var a = 2;
 	console.log( a );
 }
@@ -679,10 +679,9 @@ function two() {
 one();		// 1
 two();		// 2
 ```
+또한, 생일 파티의 광대가 다른 풍선 안에 하나의 풍선을 날려 보내는 것처럼 범위를 다른 범위 안에 중첩시킬 수 있습니다. 하나의 범위가 다른 범위 안에 중첩되어 있으면 가장 안쪽의 범위 안에있는 코드는 두 범위 중 하나의 변수에 액세스 할 수 있습니다.
 
-Also, a scope can be nested inside another scope, just like if a clown at a birthday party blows up one balloon inside another balloon. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
-
-Consider:
+고려사항:
 
 ```js
 function outer() {
@@ -691,24 +690,23 @@ function outer() {
 	function inner() {
 		var b = 2;
 
-		// we can access both `a` and `b` here
+		// 우리는 여기서`a`와`b` 모두에 접근 할 수 있습니다.
 		console.log( a + b );	// 3
 	}
 
 	inner();
 
-	// we can only access `a` here
+	// 여기서`a` 만 액세스 할 수 있습니다.
 	console.log( a );			// 1
 }
 
 outer();
 ```
+어휘 범위 규칙은 하나의 범위에 있는 코드가 그 범위 나 그 범위 밖에있는 변수에 액세스 할 수 있다고 말합니다.
 
-Lexical scope rules say that code in one scope can access variables of either that scope or any scope outside of it.
+따라서 `inner()` 함수 내부의 코드는 변수 `a`와 `b` 모두에 액세스 할 수 있지만 `outer()`의 코드는 `a`에만 액세스 할 수 있습니다. 변수가 `inner()` 내부에 있기 때문에 `b`에 액세스 할 수 없습니다.
 
-So, code inside the `inner()` function has access to both variables `a` and `b`, but code in `outer()` has access only to `a` -- it cannot access `b` because that variable is only inside `inner()`.
-
-Recall this code snippet from earlier:
+이전의 코드 스니펫을 상기 해보십시오:
 
 ```js
 const TAX_RATE = 0.08;
@@ -722,28 +720,29 @@ function calculateFinalPurchaseAmount(amt) {
 }
 ```
 
-The `TAX_RATE` constant (variable) is accessible from inside the `calculateFinalPurchaseAmount(..)` function, even though we didn't pass it in, because of lexical scope.
+`TAX_RATE` 상수 (변수)는 `calculateFinalPurchaseAmount(..)` 렉시컬범위 때문에 그것을 통과하지 않았더라도 함수 내부에서 액세스 할 수 있습니다.
 
-**Note:** For more information about lexical scope, see the first three chapters of the *Scope & Closures* title of this series.
+**참고:** 어휘 범위에 대한 자세한 내용은 이 시리즈의 *범위와 클로저* 에서 처음 세 장을 참조하십시오.
 
-## Practice
+## 연습
 
-There is absolutely no substitute for practice in learning programming. No amount of articulate writing on my part is alone going to make you a programmer.
+프로그래밍 배우기의 연습에는 절대적으로 대안이 없습니다. 아무리 많은 이 부분에서 논리 정연한 글이라도 당신을 홀로 프로그래머로 만들 수 없을 것입니다.
 
-With that in mind, let's try practicing some of the concepts we learned here in this chapter. I'll give the "requirements," and you try it first. Then consult the code listing below to see how I approached it.
+이를 염두에 두고 이 장에서 배웠던 몇 가지 개념을 연습 해 봅시다. 나는 "요구 사항"을 줄 것이고 당신은 그것을 먼저 시도 할 것입니다. 그런 다음 아래 코드 목록을 참조하여 내가 어떻게 접근했는지 확인하십시오.
 
-* Write a program to calculate the total price of your phone purchase. You will keep purchasing phones (hint: loop!) until you run out of money in your bank account. You'll also buy accessories for each phone as long as your purchase amount is below your mental spending threshold.
-* After you've calculated your purchase amount, add in the tax, then print out the calculated purchase amount, properly formatted.
-* Finally, check the amount against your bank account balance to see if you can afford it or not.
-* You should set up some constants for the "tax rate," "phone price," "accessory price," and "spending threshold," as well as a variable for your "bank account balance.""
-* You should define functions for calculating the tax and for formatting the price with a "$" and rounding to two decimal places.
-* **Bonus Challenge:** Try to incorporate input into this program, perhaps with the `prompt(..)` covered in "Input" earlier. You may prompt the user for their bank account balance, for example. Have fun and be creative!
+*전화 구매 총액을 계산하는 프로그램을 작성하십시오. 당신은 당신의 은행 계좌에서 돈이 떨어질 때까지 전화 (힌트 : 루프!)를 계속 구입할 것입니다. 또한 구매 금액이 마음의 지출 기준 액 이하인 경우 각 전화에 대한 액세서리를 구입하게됩니다.
+* 구매 금액을 계산 한 후 세금을 더한 다음 계산 된 구매 금액을 출력하여 올바르게 형식화하십시오.
+* 마지막으로 금액을 은행 계좌 잔액과 비교하여 지불 할 여유가 있는지 여부를 확인하십시오.
+* '세율', '전화 가격', '액세서리 가격'및 '지출 한도'에 대한 상수 및 '은행 계좌 잔고'에 대한 변수를 설정해야합니다.
+* 세금을 계산하고 "$"로 소수점 이하 두 자리로 반올림하여 가격을 형식화하는 함수를 정의해야합니다.
+* **보너스 챌린지:** 이 프로그램에 입력을 통합하십시오. 아마도 앞에서 "입력"에서 설명한 `prompt(..)` 를 사용하십시오. 예를 들어 사용자에게 은행 계좌 잔액을 묻는 메시지를 표시 할 수 있습니다. 재미있고 창조적이어야합니다!
 
 OK, go ahead. Try it. Don't peek at my code listing until you've given it a shot yourself!
+좋아요, 시도 해보세요. 당신이 직접 시도해보기 전까지 내 코드를 보지 마세요.
 
-**Note:** Because this is a JavaScript book, I'm obviously going to solve the practice exercise in JavaScript. But you can do it in another language for now if you feel more comfortable.
+**참고:** 이것은 자바스크립트 책이기때문에, 자바스크립트로 연습 문제를 해결할 것입니다. 그러나 더 편안하게 느껴지는 다른 언어로도 할 수 있습니다.
 
-Here's my JavaScript solution for this exercise:
+다음은 이 연습을 위한 자바스크립트 솔루션 입니다.:
 
 ```js
 const SPENDING_THRESHOLD = 200;
@@ -762,18 +761,18 @@ function formatAmount(amount) {
 	return "$" + amount.toFixed( 2 );
 }
 
-// keep buying phones while you still have money
+// 돈을 가지고있는 동안 전화를 계속 사십시오.
 while (amount < bank_balance) {
-	// buy a new phone!
+	// 새 전화기를 산다!
 	amount = amount + PHONE_PRICE;
 
-	// can we afford the accessory?
+	// 액세서리를 살 여유가 있습니까?
 	if (amount < SPENDING_THRESHOLD) {
 		amount = amount + ACCESSORY_PRICE;
 	}
 }
 
-// don't forget to pay the government, too
+// 세금 내는 것을 잊지 마세요.
 amount = amount + calculateTax( amount );
 
 console.log(
@@ -781,7 +780,7 @@ console.log(
 );
 // Your purchase: $334.76
 
-// can you actually afford this purchase?
+// 구매할 여유가 있나요?
 if (amount > bank_balance) {
 	console.log(
 		"You can't afford this purchase. :("
@@ -789,28 +788,27 @@ if (amount > bank_balance) {
 }
 // You can't afford this purchase. :(
 ```
+**참고:** 이 자바스크립트 프로그램을 실행하는 가장 간단한 방법은 가장 익숙한 브라우저의 개발자 도구 콘솔에 자바스크립트 프로그램을 입력하는 것입니다. 
 
-**Note:** The simplest way to run this JavaScript program is to type it into the developer console of your nearest browser.
+어떻게 했나요? 내 코드를 보았으므로 이제 다시 시도해도 좋을 것입니다. 그리고 프로그램이 다른 값으로 실행되는 방법을 보기 위해 상수의 일부를 변경하면서 놀아보십시오.
 
-How did you do? It wouldn't hurt to try it again now that you've seen my code. And play around with changing some of the constants to see how the program runs with different values.
+## 복습
 
-## Review
+프로그램을 배우는 것이 복잡하거나 압도적인 과정일 필요는 없습니다. 몇 가지 필요한 기본 개념을 한 번 생각해보세요.
 
-Learning programming doesn't have to be a complex and overwhelming process. There are just a few basic concepts you need to wrap your head around.
+이들은 빌딩 블록과 같은 역할을 합니다. 키가 큰 타워를 만들려면 먼저 블록 맨 위에 블록을 올려 놓습니다. 프로그래밍에도 동일하게 적용됩니다. 다음은 필수 프로그래밍 빌딩 블록 중 일부입니다:
 
-These act like building blocks. To build a tall tower, you start first by putting block on top of block on top of block. The same goes with programming. Here are some of the essential programming building blocks:
+* 값에 대한 작업을 수행하려면 *연산자*가 필요합니다.
+* `숫자` 연산이나 `문자열` 출력과 같은 여러 종류의 동작을 수행하려면 값과 *유형*이 필요합니다.
+* 프로그램을 실행하는 동안 데이터 (일명 *상태*)를 저장하기위한 *변수*가 필요합니다.
+* 의사 결정을하기 위해서는 `if` 문과 같은 *조건문*이 필요합니다.
+* 조건이 참이 될 때까지 작업을 반복하려면 *루프*가 필요합니다.
+* 논리적이고 재사용 가능한 청크로 코드를 구성하는 *함수*가 필요합니다.
 
-* You need *operators* to perform actions on values.
-* You need values and *types* to perform different kinds of actions like math on `number`s or output with `string`s.
-* You need *variables* to store data (aka *state*) during your program's execution.
-* You need *conditionals* like `if` statements to make decisions.
-* You need *loops* to repeat tasks until a condition stops being true.
-* You need *functions* to organize your code into logical and reusable chunks.
+코드 주석은 보다 이해하기 쉬운 코드를 작성하는 효과적인 방법 중 하나이며, 문제가있는 경우 나중에 프로그램을 이해하고 유지 관리하고 수정하기가 쉽습니다.
 
-Code comments are one effective way to write more readable code, which makes your program easier to understand, maintain, and fix later if there are problems.
+마지막으로, 연습의 힘을 무시하지 마십시오. 코드 작성 방법을 배우는 가장 좋은 방법은 코드를 작성하는 것입니다.
 
-Finally, don't neglect the power of practice. The best way to learn how to write code is to write code.
+코드 작성 방법을 익히기에 매우 흥분됩니다. 그것을 지키십시오. 다른 초보자 프로그래밍 리소스 (책, 블로그, 온라인 교육 등)를 확인하는 것을 잊지 마십시오. 이 장과 이 책은 훌륭한 출발점이지만 간단한 소개 일뿐입니다.
 
-I'm excited you're well on your way to learning how to code, now! Keep it up. Don't forget to check out other beginner programming resources (books, blogs, online training, etc.). This chapter and this book are a great start, but they're just a brief introduction.
-
-The next chapter will review many of the concepts from this chapter, but from a more JavaScript-specific perspective, which will highlight most of the major topics that are addressed in deeper detail throughout the rest of the series.
+다음 장에서는이 장의 많은 개념을 검토 할 것이지만 자바스크립트의 고유 한 관점에서 살펴볼 것입니다. 이 장에서는 일련의 주요 주제를 강조하여 나머지 시리즈에서 자세히 설명합니다.
