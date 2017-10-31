@@ -1,18 +1,19 @@
 # You Don't Know JS: Up & Going
-# Chapter 2: Into JavaScript
+# 2장 자바스크립트 속으로
 
-In the previous chapter, I introduced the basic building blocks of programming, such as variables, loops, conditionals, and functions. Of course, all the code shown has been in JavaScript. But in this chapter, we want to focus specifically on things you need to know about JavaScript to get up and going as a JS developer.
+이전 장에서는 변수, 루프, 조건부 및 함수와 같은 프로그래밍의 기본 구성 요소를 소개했습니다. 물론 표시 된 모든 코드는 자바스크립트로 작성되었습니다. 하지만 이 장에서는 JS 개발자로서 떠오르기 위해 알아야 할 사항에 집중하고자 합니다.
 
-We will introduce quite a few concepts in this chapter that will not be fully explored until subsequent *YDKJS* books. You can think of this chapter as an overview of the topics covered in detail throughout the rest of this series.
+이 장에서 이어지는 *YDKJS* 서적까지 완전히 탐구되지는 않을 개념들을 소개 할 것입니다. 이 장을 이 시리즈의 나머지 부분에서 자세히 다루는 주제의 개요로 생각할 수 있습니다.
 
-Especially if you're new to JavaScript, you should expect to spend quite a bit of time reviewing the concepts and code examples here multiple times. Any good foundation is laid brick by brick, so don't expect that you'll immediately understand it all the first pass through.
+특히 자바스크립트를 처음 사용하는 사람이라면 여러 번 개념과 코드 예제를 검토하는 데 상당한 시간을 할애해야합니다. 좋은 기초는 벽돌과 타일이 누적 된 것이므로 전체 내용을 즉시 이해하고 첫 번째에서 이해할 것이라고 기대하지 마세요.
 
-Your journey to deeply learn JavaScript starts here.
+자바스크립트를 깊게 배우는 당신의 여정은 여기서부터 시작입니다.
 
-**Note:** As I said in Chapter 1, you should definitely try all this code yourself as you read and work through this chapter. Be aware that some of the code here assumes capabilities introduced in the newest version of JavaScript at the time of this writing (commonly referred to as "ES6" for the 6th edition of ECMAScript -- the official name of the JS specification). If you happen to be using an older, pre-ES6 browser, the code may not work. A recent update of a modern browser (like Chrome, Firefox, or IE) should be used.
+**참고:** 첫 장에서도 말했듯이 이 장을 읽고 읽으면서 코드 전부를 직접 실행해야 합니다. 이 글의 일부는이 글을 쓰는 시점에서 최신 버전의 JavaScript (일반적으로 JS 규격의 공식 명칭 인 ECMAScript의 제 6 판에서는 "ES6"이라고 함)에 도입 된 기능을 사용한다는 점을 알아 두십시오. 이전 ES6 이전 브라우저를 사용하는 경우 코드가 작동하지 않을 수 있습니다. 최신 브라우저 (예 : Chrome, Firefox 또는 IE)의 최신 업데이트를 사용해야합니다.
 
-## Values & Types
+## 값과 유형
 
+1장에서 주장한 것 처럼 자바스크립트는 변수 유형이 없는 값 유형을 가집니다. 사용 가능한 기본 제공 유형은 다음과 같습니다:
 As we asserted in Chapter 1, JavaScript has typed values, not typed variables. The following built-in types are available:
 
 * `string`
