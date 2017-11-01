@@ -102,9 +102,10 @@ obj["b"];		// 42
 
 자바스크립트 프로그램에서 일반적으로 상호 작용 할 수 있는 몇 가지 다른 값 유형이 있습니다. 그것은 *배열*과 *함수*입니다. 그러나 적절한 기본 제공 유형이 아니라 특수 유형의 `객체` 유형인 하위 유형과 더 비슷하게 생각해야합니다.
 
-#### Arrays
+#### 배열
 
-An array is an `object` that holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions. For example:
+배열은 특히 명명된 속성/키가 아닌 숫자로 인덱싱 된 위치에 있는 값(모든 유형의 값을)을 보유하는 `객체`입니다.
+예: 
 
 ```js
 var arr = [
@@ -121,17 +122,17 @@ arr.length;		// 3
 typeof arr;		// "object"
 ```
 
-**Note:** Languages that start counting at zero, like JS does, use `0` as the index of the first element in the array.
+**참고 :** JS와 마찬가지로 0에서 시작되는 언어는 배열에서 첫 번째 요소의 인덱스로 0을 사용합니다. 
 
-It may be helpful to think of `arr` visually:
+`arr`을 시각적으로 생각하는 것이 도움이 될 수 있습니다.
 
 <img src="fig5.png">
 
-Because arrays are special objects (as `typeof` implies), they can also have properties, including the automatically updated `length` property.
+배열은 특수한 객체이기 때문에 (`typeof`가 의미하는) 자동으로 업데이트되는 `length` 속성을 포함하여 속성을 가질 수도 있습니다.
 
-You theoretically could use an array as a normal object with your own named properties, or you could use an `object` but only give it numeric properties (`0`, `1`, etc.) similar to an array. However, this would generally be considered improper usage of the respective types.
+이론적으로 자신의 명명 된 속성을 가진 일반 `객체`로 배열을 사용하거나 객체를 사용할 수 있지만 배열과 비슷한 숫자 속성 (`0`, `1` 등) 만 지정할 수 있습니다. 그러나 이것은 일반적으로 각 유형의 부적절한 사용으로 간주됩니다.
 
-The best and most natural approach is to use arrays for numerically positioned values and use `object`s for named properties.
+가장 자연스러운 방법은 수치 적으로 지정된 값에 배열을 사용하고 명명 된 속성에 `객체`를 사용하는 것입니다.
 
 #### Functions
 
