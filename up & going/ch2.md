@@ -20,7 +20,7 @@
 * `부울`
 * `null` 과 `undefined`
 * `객체`
-* `symbol` (ES6에서 새로 추가)
+* `심볼` (ES6에서 새로 추가)
 
 자바스크립트는 값을 검사하고 어떤 유형인지 알려주는 `typeof` 연산자를 제공합니다:
 
@@ -46,18 +46,17 @@ typeof a;				// "undefined"
 a = { b: "c" };
 typeof a;				// "객체"
 ```
+`typeof` 연산자의 반환 값은 항상 6 중 하나입니다 (ES6의 경우 7 개 - "심볼"유형) 문자열 값입니다. 즉, `typeof "abc"`는 `문자열`이 아니라 `"문자열"`을 반환합니다.
 
-The return value from the `typeof` operator is always one of six (seven as of ES6! - the "symbol" type) string values. That is, `typeof "abc"` returns `"string"`, not `string`.
+이 스니펫에서는 변수 `a`가 모든 다른 유형의 값을 보유하고 있으며 표면상의 모습에도 불구하고 `typeof a`는 "`a`의 유형"을 요구하지 않고 "`a`의 현재 값의 유형"을 요구합니다. 자바스크립트에는 값에만 유형이 있습니다. 변수는 그 값에 대한 단순한 컨테이너입니다.
 
-Notice how in this snippet the `a` variable holds every different type of value, and that despite appearances, `typeof a` is not asking for the "type of `a`", but rather for the "type of the value currently in `a`." Only values have types in JavaScript; variables are just simple containers for those values.
+`typeof null`은 `"null"`을 반환 할 때 `"객체"`를 잘못 반환하기 때문에 흥미로운 사례입니다.
 
-`typeof null` is an interesting case, because it errantly returns `"object"`, when you'd expect it to return `"null"`.
+**경고:** 이것은 JS의 오래된 버그이지만 결코 고칠 수 없는 버그입니다. 웹에서 코드가 너무 많으면 버그에 의존하기 때문에 버그를 수정하면 더 많은 버그가 발생합니다!
 
-**Warning:** This is a long-standing bug in JS, but one that is likely never going to be fixed. Too much code on the Web relies on the bug and thus fixing it would cause a lot more bugs!
+또한 `a = undefined`에 유의하십시오. 우리는 명시적으로 `a`를 `undefined`로 설정하고 있지만 스니펫 맨 위에 있는 행에 `var a;`와 같이 아직 값이 설정되지 않은 변수와 동작상의 차이는 없습니다. 변수는 값을 반환하지 않는 함수와 `void` 연산자를 사용하여 여러 가지 다른 방법으로이 "undefined"값 상태가 될 수 있습니다.
 
-Also, note `a = undefined`. We're explicitly setting `a` to the `undefined` value, but that is behaviorally no different from a variable that has no value set yet, like with the `var a;` line at the top of the snippet. A variable can get to this "undefined" value state in several different ways, including functions that return no values and usage of the `void` operator.
-
-### Objects
+### 객체
 
 The `object` type refers to a compound value where you can set properties (named locations) that each hold their own values of any type. This is perhaps one of the most useful value types in all of JavaScript.
 
