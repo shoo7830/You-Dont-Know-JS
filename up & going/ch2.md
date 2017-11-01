@@ -14,38 +14,37 @@
 ## 값과 유형
 
 1장에서 주장한 것 처럼 자바스크립트는 변수 유형이 없는 값 유형을 가집니다. 사용 가능한 기본 제공 유형은 다음과 같습니다:
-As we asserted in Chapter 1, JavaScript has typed values, not typed variables. The following built-in types are available:
 
-* `string`
-* `number`
-* `boolean`
-* `null` and `undefined`
-* `object`
-* `symbol` (new to ES6)
+* `문자열`
+* `숫자`
+* `부울`
+* `null` 과 `undefined`
+* `객체`
+* `symbol` (ES6에서 새로 추가)
 
-JavaScript provides a `typeof` operator that can examine a value and tell you what type it is:
+자바스크립트는 값을 검사하고 어떤 유형인지 알려주는 `typeof` 연산자를 제공합니다:
 
 ```js
 var a;
 typeof a;				// "undefined"
 
 a = "hello world";
-typeof a;				// "string"
+typeof a;				// "문자열"
 
 a = 42;
-typeof a;				// "number"
+typeof a;				// "숫자"
 
 a = true;
-typeof a;				// "boolean"
+typeof a;				// "부울"
 
 a = null;
-typeof a;				// "object" -- weird, bug
+typeof a;				// "객체" -- 이상한, 버그
 
 a = undefined;
 typeof a;				// "undefined"
 
 a = { b: "c" };
-typeof a;				// "object"
+typeof a;				// "객체"
 ```
 
 The return value from the `typeof` operator is always one of six (seven as of ES6! - the "symbol" type) string values. That is, `typeof "abc"` returns `"string"`, not `string`.
