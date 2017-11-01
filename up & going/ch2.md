@@ -58,7 +58,7 @@ typeof a;				// "객체"
 
 ### 객체
 
-The `object` type refers to a compound value where you can set properties (named locations) that each hold their own values of any type. This is perhaps one of the most useful value types in all of JavaScript.
+`객체` 유형은 복합 유형의 값을 나타내며, 각 속성은 유형의 자체 값을 보유하는 특성 (위치 지정)을 설정할 수 있습니다. 이것은 아마도 모든 자바스크립트에서 가장 유용한 값 유형 중 하나 일 것입니다.
 
 ```js
 var obj = {
@@ -76,15 +76,15 @@ obj["b"];	// 42
 obj["c"];	// true
 ```
 
-It may be helpful to think of this `obj` value visually:
+이 `obj` 값을 시각적으로 생각하는 것이 도움이 될 수 있습니다:
 
 <img src="fig4.png">
 
-Properties can either be accessed with *dot notation* (i.e., `obj.a`) or *bracket notation* (i.e., `obj["a"]`). Dot notation is shorter and generally easier to read, and is thus preferred when possible.
+속성은 *점 표기법* (obj.a) 또는 *대괄호 표기법* (obj [ "a"])으로 액세스 할 수 있습니다. 점 표기법은 짧고 일반적으로 읽기가 쉽기 때문에 가능한 경우 선호됩니다.
 
-Bracket notation is useful if you have a property name that has special characters in it, like `obj["hello world!"]` -- such properties are often referred to as *keys* when accessed via bracket notation. The `[ ]` notation requires either a variable (explained next) or a `string` *literal* (which needs to be wrapped in `" .. "` or `' .. '`).
+대괄호 표기법은 `obj [ "hello world!"]`와 같이 특수 문자가 있는 속성 이름을 가진 경우 유용합니다. 이러한 속성은 대괄호 표기법을 통해 액세스 할 때 대개 *키*라고합니다. `[]` 표기법에는 변수 (다음에 설명 됨) 또는 `문자열` *리터럴* ( `".."`또는 `".."`으로 묶어야 함)이 필요합니다.
 
-Of course, bracket notation is also useful if you want to access a property/key but the name is stored in another variable, such as:
+물론 대괄호 표기법은 속성 / 키에 액세스하려고하지만 이름이 다른 변수에 저장되는 경우 유용합니다:
 
 ```js
 var obj = {
@@ -98,9 +98,9 @@ obj[b];			// "hello world"
 obj["b"];		// 42
 ```
 
-**Note:** For more information on JavaScript `object`s, see the *this & Object Prototypes* title of this series, specifically Chapter 3.
+**참고:** 자바스크립트 `객체`에 대한 자세한 내용은 이 시리즈의 *this & 객체 프로토타입* ,특히 3 장을 참조하십시오.
 
-There are a couple of other value types that you will commonly interact with in JavaScript programs: *array* and *function*. But rather than being proper built-in types, these should be thought of more like subtypes -- specialized versions of the `object` type.
+자바스크립트 프로그램에서 일반적으로 상호 작용 할 수 있는 몇 가지 다른 값 유형이 있습니다. 그것은 *배열*과 *함수*입니다. 그러나 적절한 기본 제공 유형이 아니라 특수 유형의 `객체` 유형인 하위 유형과 더 비슷하게 생각해야합니다.
 
 #### Arrays
 
