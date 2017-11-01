@@ -134,9 +134,9 @@ typeof arr;		// "object"
 
 가장 자연스러운 방법은 수치 적으로 지정된 값에 배열을 사용하고 명명 된 속성에 `객체`를 사용하는 것입니다.
 
-#### Functions
+#### 함수
 
-The other `object` subtype you'll use all over your JS programs is a function:
+JS 프로그램 전체에서 사용할 다른 `객체` 하위 유형은 함수입니다:
 
 ```js
 function foo() {
@@ -149,10 +149,9 @@ typeof foo;			// "function"
 typeof foo();		// "number"
 typeof foo.bar;		// "string"
 ```
+다시 말하지만, 함수는 `객체`의 하위 유형입니다. `typeof`는 `"function"`을 반환합니다. 이는 `함수`가 기본 유형임을 나타내며 따라서 속성을 가질 수 있지만 일반적으로 제한된 경우에만 (`foo.bar`와 같은) 함수 객체 속성을 사용합니다.
 
-Again, functions are a subtype of `objects` -- `typeof` returns `"function"`, which implies that a `function` is a main type -- and can thus have properties, but you typically will only use function object properties (like `foo.bar`) in limited cases.
-
-**Note:** For more information on JS values and their types, see the first two chapters of the *Types & Grammar* title of this series.
+**참고:** JS 값과 유형에 대한 자세한 내용은 이 시리즈의 *유형과 문법*의 처음 두 장을 참조하십시오.
 
 ### Built-In Type Methods
 
