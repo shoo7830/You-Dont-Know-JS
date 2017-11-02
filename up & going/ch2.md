@@ -153,11 +153,11 @@ typeof foo.bar;		// "string"
 
 **참고:** JS 값과 유형에 대한 자세한 내용은 이 시리즈의 *유형과 문법*의 처음 두 장을 참조하십시오.
 
-### Built-In Type Methods
+### 내장 메서드
 
-The built-in types and subtypes we've just discussed have behaviors exposed as properties and methods that are quite powerful and useful.
+방금 살펴본 내장 유형 및 하위 유형은 매우 강력하고 유용한 속성 및 메서드로 표시되는 비헤이비어를 포함합니다.
 
-For example:
+예:
 
 ```js
 var a = "hello world";
@@ -168,15 +168,15 @@ a.toUpperCase();		// "HELLO WORLD"
 b.toFixed(4);			// "3.1416"
 ```
 
-The "how" behind being able to call `a.toUpperCase()` is more complicated than just that method existing on the value.
+`a.toUpperCase()`를 호출 할 수있는 "방법"은 값에 존재하는 메서드보다 훨씬 복잡합니다.
 
-Briefly, there is a `String` (capital `S`) object wrapper form, typically called a "native," that pairs with the primitive `string` type; it's this object wrapper that defines the `toUpperCase()` method on its prototype.
+간단히 말해, 원시 `문자열` 유형과 쌍을 이루는 일반적으로 "원시"라고하는 `String` (대문자 `S`) 객체 래퍼 형식이 있습니다. 프로토타입에 `toUpperCase()` 메서드를 정의하는 것은 이 객체 래퍼입니다.
 
-When you use a primitive value like `"hello world"` as an `object` by referencing a property or method (e.g., `a.toUpperCase()` in the previous snippet), JS automatically "boxes" the value to its object wrapper counterpart (hidden under the covers).
+속성이나 메서드 (예 : 이전 스니펫의 `a.toUpperCase()`)를 참조하여 `"hello world"`와 같은 원시 값을 `객체`로 사용하는 경우 JS는 자동으로 값을 객체 래퍼 사본 (표지 아래에 숨김)에 "밀어넣습니다".
 
-A `string` value can be wrapped by a `String` object, a `number` can be wrapped by a `Number` object, and a `boolean` can be wrapped by a `Boolean` object. For the most part, you don't need to worry about or directly use these object wrapper forms of the values -- prefer the primitive value forms in practically all cases and JavaScript will take care of the rest for you.
+`문자열` 값은 `String` 객체로 래핑 할 수 있고 `숫자`는 `Number` 객체로 래핑 할 수 있으며 `부울`은 `Boolean` 객체로 래핑 할 수 있습니다. 대부분의 경우, 값의 객체 래퍼 형식을 걱정하거나 직접 사용할 필요가 없습니다. 모든 경우에 기본 값 형식을 선호하고 자바스크립트가 나머지 부분을 처리합니다.
 
-**Note:** For more information on JS natives and "boxing," see Chapter 3 of the *Types & Grammar* title of this series. To better understand the prototype of an object, see Chapter 5 of the *this & Object Prototypes* title of this series.
+**참고:** JS 네이티브 및 "boxing"에 대한 자세한 내용은 이 시리즈의 *유형과 문법* 3장을 참조하십시오. 객체의 프로토타입을 더 잘 이해하려면 이 시리즈의 *this와 객체 프로토타입* 5장을 참조하십시오.
 
 ### Comparing Values
 
