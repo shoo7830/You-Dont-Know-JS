@@ -178,9 +178,9 @@ b.toFixed(4);			// "3.1416"
 
 **참고:** JS 네이티브 및 "boxing"에 대한 자세한 내용은 이 시리즈의 *유형과 문법* 3장을 참조하십시오. 객체의 프로토타입을 더 잘 이해하려면 이 시리즈의 *this와 객체 프로토타입* 5장을 참조하십시오.
 
-### Comparing Values
+### 값의 비교
 
-There are two main types of value comparison that you will need to make in your JS programs: *equality* and *inequality*. The result of any comparison is a strictly `boolean` value (`true` or `false`), regardless of what value types are compared.
+JS 프로그램에서 *평등*과 *불평등*의 두 가지 주요 유형을 비교해야합니다: 모든 비교 결과는 비교되는 값 유형에 관계없이 엄격하게 `부울` 값 (`true` 또는 `false`)입니다.
 
 #### Coercion
 
