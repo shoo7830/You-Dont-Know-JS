@@ -214,35 +214,36 @@ a;				// "42"
 b;				// 42 -- 숫자!
 ```
 
-#### Truthy & Falsy
+#### 진실과 거짓
 
-In Chapter 1, we briefly mentioned the "truthy" and "falsy" nature of values: when a non-`boolean` value is coerced to a `boolean`, does it become `true` or `false`, respectively?
+1장에서 우리는 값의 "진실"과 "거짓" 성질을 간략하게 언급하였습니다: `부울`이 아닌 값이 `부울`로 강요될 때 각각 `참`인지 `거짓`인지 되나요?
 
-The specific list of "falsy" values in JavaScript is as follows:
+자바스크립트의 "거짓"값의 구체적인 목록은 다음과 같습니다:
 
-* `""` (empty string)
-* `0`, `-0`, `NaN` (invalid `number`)
+* `""` (빈 문자열)
+* `0`, `-0`, `NaN` (유효하지 않은 `숫자`)
 * `null`, `undefined`
 * `false`
 
-Any value that's not on this "falsy" list is "truthy." Here are some examples of those:
+이 "거짓"목록에 없는 모든 값은 "진실"입니다. 다음은 그 몇 가지 예입니다.:
 
 * `"hello"`
 * `42`
 * `true`
-* `[ ]`, `[ 1, "2", 3 ]` (arrays)
-* `{ }`, `{ a: 42 }` (objects)
-* `function foo() { .. }` (functions)
+* `[ ]`, `[ 1, "2", 3 ]` (배열)
+* `{ }`, `{ a: 42 }` (객체)
+* `function foo() { .. }` (함수)
 
 It's important to remember that a non-`boolean` value only follows this "truthy"/"falsy" coercion if it's actually coerced to a `boolean`. It's not all that difficult to confuse yourself with a situation that seems like it's coercing a value to a `boolean` when it's not.
+`부울`이 아닌 값은 실제로 부울로 강제 변환되는 경우이 "진실"/ "위증"강제 변환에만 이어지는 것을 기억하는 것이 중요합니다.
 
-#### Equality
+#### 균등
 
-There are four equality operators: `==`, `===`, `!=`, and `!==`. The `!` forms are of course the symmetric "not equal" versions of their counterparts; *non-equality* should not be confused with *inequality*.
+네 개의 균등연산자가 있습니다: `==`, `===`, `!=`, `!==` 입니다. The `!` 양식은 물론 대칭인 "균등하지 않은"  버전입니다. *비 균등성*을 *불평등*과 혼동해서는 안됩니다.
 
-The difference between `==` and `===` is usually characterized that `==` checks for value equality and `===` checks for both value and type equality. However, this is inaccurate. The proper way to characterize them is that `==` checks for value equality with coercion allowed, and `===` checks for value equality without allowing coercion; `===` is often called "strict equality" for this reason.
+`==`과 `===`의 차이점은 일반적으로는 `==`는 값의 균등성을 검사하고 `===`는 값과 균등성을 모두 확인 한다는 것을 특징으로 합니다. 그러나 이것은 정확하지 않습니다. 그것들을 특성화 하는 적절한 방법은 `==`는 강제 변환과 함께 가치 균등 을 검사하고 `===`는 강압을 허용하지 않고 가치 균등을 검사하는 것입니다. 이러한 이유로 "엄격한 균등" 이라고 종종 부릅니다.
 
-Consider the implicit coercion that's allowed by the `==` loose-equality comparison and not allowed with the `===` strict-equality:
+`==`는 느슨한 균등 비교에 허용된 암시적 강제변환을 고려하고 `===` 엄격한 균등에서는 허용되지 않습니다.
 
 ```js
 var a = "42";
@@ -252,13 +253,14 @@ a == b;			// true
 a === b;		// false
 ```
 
-In the `a == b` comparison, JS notices that the types do not match, so it goes through an ordered series of steps to coerce one or both values to a different type until the types match, where then a simple value equality can be checked.
+`a == b` 비교에서 JS는 유형이 일치하지 않다는 것을 알아차리고 형식이 일치할 때까지 하나 또는 두 개의 값을 다른 유형으로 강제 변환하는 일련의 단계를 거치며 간단한 값의 균등성을 확인할 수 있습니다.
 
-If you think about it, there's two possible ways `a == b` could give `true` via coercion. Either the comparison could end up as `42 == 42` or it could be `"42" == "42"`. So which is it?
+그것에 대해 생각한다면, `a == b` 가 강요를 통해 `진실`을 줄 수 있는 두 가지 가능한 방법이 있습니다. 비교가 `42 == 42`로 끝나거나 `"42" == "42"`가 될 수 있습니다. 어떤가요?
 
-The answer: `"42"` becomes `42`, to make the comparison `42 == 42`. In such a simple example, it doesn't really seem to matter which way that process goes, as the end result is the same. There are more complex cases where it matters not just what the end result of the comparison is, but *how* you get there.
+답: `"42"`는 `42`가 되어 `42 == 42`로 비교됩니다. 간단한 예제에서 최종 결과가 동일하므로 프로세스가 어떤 방식으로 진행되는지는 중요하지 않습니다. 그러나 더 복잡한 경우에, 이 뿐만 아니라 비교의 최종 결과에 매우 중요하지만, 또한 당신을 위해 *무엇을* 이 결과에서 얻기 위해 매우 중요합니다.
 
-The `a === b` produces `false`, because the coercion is not allowed, so the simple value comparison obviously fails. Many developers feel that `===` is more predictable, so they advocate always using that form and staying away from `==`. I think this view is very shortsighted. I believe `==` is a powerful tool that helps your program, *if you take the time to learn how it works.*
+
+`a === b`는 강제 변환이 허용되지 않으므로 `false`를 생성합니다.그래서 단순 값 비교는 분명히 실패합니다. 많은 개발자들은 `===`이 더 예측가능하다고 느끼기 때문에 `==`에서 벗어나 항상 해당 양식을 사용해야 한다고 옹호합니다. 나는 이 견해가 매우 근시안적이라고 생각합니다. 나는 `==` 이 *작동하는 법을 배우기 위해 시간을 들이면*, 당신의 프로그램을 돕는 강력한 도구라고 믿습니다.
 
 We're not going to cover all the nitty-gritty details of how the coercion in `==` comparisons works here. Much of it is pretty sensible, but there are some important corner cases to be careful of. You can read section 11.9.3 of the ES5 specification (http://www.ecma-international.org/ecma-262/5.1/) to see the exact rules, and you'll be surprised at just how straightforward this mechanism is, compared to all the negative hype surrounding it.
 
