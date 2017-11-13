@@ -182,17 +182,17 @@ b.toFixed(4);			// "3.1416"
 
 JS 프로그램에서 *평등*과 *불평등*의 두 가지 주요 유형을 비교해야합니다: 모든 비교 결과는 비교되는 값 유형에 관계없이 엄격하게 `부울` 값 (`true` 또는 `false`)입니다.
 
-#### Coercion
+#### 강제 변환
 
-We talked briefly about coercion in Chapter 1, but let's revisit it here.
+1 장에서 강제 변환에 대해 간략하게 이야기했지만 여기에서 다시 살펴 보겠습니다.
 
-Coercion comes in two forms in JavaScript: *explicit* and *implicit*. Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, whereas implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.
+강제 변환은 자바스크립트에서 두 가지 형태로 제공됩니다 : *명시적* 및 *암시적*입니다. 명시적 강제 변환은 코드에서 한 유형에서 다른 유형으로의 변환이 발생한다는 것을 분명히 볼 수 있으며, 암시적 강제 변환은 유형 변환이 다른 조작의 부작용이 아닌 것으로 더 많이 발생할 수있는 경우입니다.
 
-You've probably heard sentiments like "coercion is evil" drawn from the fact that there are clearly places where coercion can produce some surprising results. Perhaps nothing evokes frustration from developers more than when the language surprises them.
+강제 변환이 놀라운 결과를 가져올 수있는 명확한 장소가 있다는 사실 때문에 "강제 변환은 악"과 같은 감정을 들었을 것입니다. 아마 언어가 그들을 놀라게 할 때보다 개발자들에게 좌절감을 불러 일으킬만한 것은 없을 것입니다.
 
-Coercion is not evil, nor does it have to be surprising. In fact, the majority of cases you can construct with type coercion are quite sensible and understandable, and can even be used to *improve* the readability of your code. But we won't go much further into that debate -- Chapter 4 of the *Types & Grammar* title of this series covers all sides.
+강제 변환은 악의도 아니고 놀라운 것도 아닙니다. 실제로 유형 강제 변환을 사용하여 작성할 수있는 대부분의 경우는 매우 현명하고 이해할 수 있으며 코드의 가독성을 *향상*시키는 데 사용될 수도 있습니다. 그러나 우리는 그 논쟁을 더 이상하지 않을 것입니다 - 이 시리즈의 *유형 및 문법* 4 장은 모든 면을 다룹니다.
 
-Here's an example of *explicit* coercion:
+다음은 *명시적* 강제 변환의 예입니다: 
 
 ```js
 var a = "42";
@@ -200,18 +200,19 @@ var a = "42";
 var b = Number( a );
 
 a;				// "42"
-b;				// 42 -- the number!
+b;				// 42 -- 숫자!
 ```
 
 And here's an example of *implicit* coercion:
+그리고 다음은 *암시적* 강제 변환의 예입니다:
 
 ```js
 var a = "42";
 
-var b = a * 1;	// "42" implicitly coerced to 42 here
+var b = a * 1;	// "42" 암시적으로 여기에 42 강제 변환
 
 a;				// "42"
-b;				// 42 -- the number!
+b;				// 42 -- 숫자!
 ```
 
 #### Truthy & Falsy
