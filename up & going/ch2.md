@@ -203,7 +203,6 @@ a;				// "42"
 b;				// 42 -- 숫자!
 ```
 
-And here's an example of *implicit* coercion:
 그리고 다음은 *암시적* 강제 변환의 예입니다:
 
 ```js
