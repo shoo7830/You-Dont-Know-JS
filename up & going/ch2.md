@@ -262,6 +262,7 @@ a === b;		// false
 
 `a === b`는 강제 변환이 허용되지 않으므로 `false`를 생성합니다.그래서 단순 값 비교는 분명히 실패합니다. 많은 개발자들은 `===`이 더 예측가능하다고 느끼기 때문에 `==`에서 벗어나 항상 해당 양식을 사용해야 한다고 옹호합니다. 나는 이 견해가 매우 근시안적이라고 생각합니다. 나는 `==` 이 *작동하는 법을 배우기 위해 시간을 들이면*, 당신의 프로그램을 돕는 강력한 도구라고 믿습니다.
 
+우리는 여기 `==` 에서 강제 변환이 어떻게 작용하는지에 대한 핵심적인 모든 세부 사항을 다루지 않을 것입니다.
 We're not going to cover all the nitty-gritty details of how the coercion in `==` comparisons works here. Much of it is pretty sensible, but there are some important corner cases to be careful of. You can read section 11.9.3 of the ES5 specification (http://www.ecma-international.org/ecma-262/5.1/) to see the exact rules, and you'll be surprised at just how straightforward this mechanism is, compared to all the negative hype surrounding it.
 
 To boil down a whole lot of details to a few simple takeaways, and help you know whether to use `==` or `===` in various situations, here are my simple rules:
