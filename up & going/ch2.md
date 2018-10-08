@@ -237,7 +237,7 @@ b;				// 42 -- 숫자!
 It's important to remember that a non-`boolean` value only follows this "truthy"/"falsy" coercion if it's actually coerced to a `boolean`. It's not all that difficult to confuse yourself with a situation that seems like it's coercing a value to a `boolean` when it's not.
 `부울`이 아닌 값은 실제로 부울로 강제 변환되는 경우이 "진실"/ "위증"강제 변환에만 이어지는 것을 기억하는 것이 중요합니다.
 
-#### 동등동등
+#### 동등
 
 네 개의 동등연산자가 있습니다: `==`, `===`, `!=`, `!==` 입니다. The `!` 양식은 물론 대칭인 "동등하지 않은"  버전입니다. *비 동등성*을 *불평등*과 혼동해서는 안됩니다.
 
