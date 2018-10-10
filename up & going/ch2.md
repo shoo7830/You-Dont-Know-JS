@@ -234,7 +234,6 @@ b;				// 42 -- 숫자!
 * `{ }`, `{ a: 42 }` (객체)
 * `function foo() { .. }` (함수)
 
-It's important to remember that a non-`boolean` value only follows this "truthy"/"falsy" coercion if it's actually coerced to a `boolean`. It's not all that difficult to confuse yourself with a situation that seems like it's coercing a value to a `boolean` when it's not.
 `부울`이 아닌 값은 실제로 부울로 강제 변환되는 경우이 "진실"/ "위증"강제 변환에만 이어지는 것을 기억하는 것이 중요합니다.
 
 #### 동등
@@ -300,15 +299,18 @@ a == b;		// false
 **참고:** `==` 동등 비교 규칙에 대한 자세한 내용은 ES5 사양 (11.9.3 단원)을 참조하고 이 시리즈의 *형식과 문법* 4장을 참조하십시오. 
 값 대 참조에 대한 자세한 내용은 2 장을 참조하십시오.
 
-#### Inequality
+#### 부등
 
-The `<`, `>`, `<=`, and `>=` operators are used for inequality, referred to in the specification as "relational comparison." Typically they will be used with ordinally comparable values like `number`s. It's easy to understand that `3 < 4`.
+`<`,`>`, `<=`, `>=` 연산자는 부등호에 사용되며 사양에서 "관계형 비교" 라고합니다.
+일반적으로 `숫자`와 같이 비교할 수 있는 값과 함께 사용됩니다. `3 < 4`를 이해하는 것은 쉽습니다.
 
-But JavaScript `string` values can also be compared for inequality, using typical alphabetic rules (`"bar" < "foo"`).
+그러나 JavaScript `문자열` 값은 일반적인 알파벳 규칙 ( `"bar" < "foo"`)을 사용하여 부등을 비교할 수도 있습니다
 
-What about coercion? Similar rules as `==` comparison (though not exactly identical!) apply to the inequality operators. Notably, there are no "strict inequality" operators that would disallow coercion the same way `===` "strict equality" does.
+강제는 어떤가요? 
+`==` 비교 (똑같은 것은 아니지만!)와 비슷한 규칙이 부등호 연산자에 적용됩니다.
+특히 "엄격한 동등", `===` 과 같은 방식으로 강제를 허용하지 않는  "엄격한 부등" 연산자는 없습니다.
 
-Consider:
+고려사항:
 
 ```js
 var a = 41;
@@ -319,9 +321,13 @@ a < b;		// true
 b < c;		// true
 ```
 
-What happens here? In section 11.8.5 of the ES5 specification, it says that if both values in the `<` comparison are `string`s, as it is with `b < c`, the comparison is made lexicographically (aka alphabetically like a dictionary). But if one or both is not a `string`, as it is with `a < b`, then both values are coerced to be `number`s, and a typical numeric comparison occurs.
+여기서 어떻게 되나요?
+ES5 사양의 11.8.5 절에서는 `<` 비교에서 두 값이 모두 `문자열` 인 경우 `b < c`와 같이 비교가 사전식 (알파벳순으로 사전과 유사 함)으로 되어 있다고 말합니다.
+그러나 하나 또는 둘 다 `문자열`이 아니고 `a < b` 인 경우 두 값이 모두 `숫자`로 강요되며 일반적인 숫자 비교가 발생합니다.
 
 The biggest gotcha you may run into here with comparisons between potentially different value types -- remember, there are no "strict inequality" forms to use -- is when one of the values cannot be made into a valid number, such as:
+
+잠재적으로 다른 값 유형 간의 비교를 통해 여기까지 갈 수있는 가장 큰 문제는 -- 기억하십시오. 사용할 "엄격한 부등" 양식이 없습니다. --  다음 중 하나의 값을 유효한 숫자로 만들 수 없는 경우입니다:
 
 ```js
 var a = 42;
@@ -332,11 +338,12 @@ a > b;		// false
 a == b;		// false
 ```
 
-Wait, how can all three of those comparisons be `false`? Because the `b` value is being coerced to the "invalid number value" `NaN` in the `<` and `>` comparisons, and the specification says that `NaN` is neither greater-than nor less-than any other value.
+잠깐, 어떻게 그 세 가지 비교가 모두 `false` 일 수 있습니까?
+`b` 값은 `<` 및 `>` 비교에서 "유효하지 않은 숫자 값" `NaN`으로 강제 변환되기 때문에 `NaN`이 다른 값보다 크지도 작지도 않습니다.
 
-The `==` comparison fails for a different reason. `a == b` could fail if it's interpreted either as `42 == NaN` or `"42" == "foo"` -- as we explained earlier, the former is the case.
+`==` 비교는 다른 이유로 실패합니다. `a == b`는 `42 == NaN` 또는 `"42"== "foo"`로 해석되면 실패 할 수 있습니다. 전자는 사실입니다.
 
-**Note:** For more information about the inequality comparison rules, see section 11.8.5 of the ES5 specification and also consult Chapter 4 of the *Types & Grammar* title of this series.
+**참고:** 부등 비교 규칙에 대한 자세한 내용은 ES5 사양의 섹션 11.8.5를 참조하고 이 시리즈의 *유형과 문법* 4 장을 참조하십시오.
 
 ## Variables
 
