@@ -357,17 +357,17 @@ Unicode와 같은 비 전통적 문자를 고려할 때 식별자의 유효한 �
 
 **참고 :** 예약어에 대한 자세한 내용은 이 시리즈의 *유형 및 문법* 부록 A를 참조하십시오.
 
-### Function Scopes
+### 함수 범위
 
-You use the `var` keyword to declare a variable that will belong to the current function scope, or the global scope if at the top level outside of any function.
+현재 함수 범위에 속하는 변수를 선언하려면 `var` 키워드를 사용하고 함수 외부의 최상위 수준에 있는 경우 전역 범위를 선언합니다.
 
-#### Hoisting
+#### 호이스팅
 
-Wherever a `var` appears inside a scope, that declaration is taken to belong to the entire scope and accessible everywhere throughout.
+어떤 `var`가 스코프 내부에 나타날 때마다, 그 선언은 전체 스코프에 속하고 어디에서나 액세스 할 수 있습니다.
+비유적으로 이 동작은 `var` 선언이 개념적으로 둘러싸고 있는 범위의 맨 위로 이동 될 때 *호이스팅*이라고 부릅니다. 
+기술적으로이 프로세스는 코드가 컴파일되는 방식에 의해 보다 정확하게 설명되지만 지금은 그 세부 사항을 건너 뛸 수 있습니다.
 
-Metaphorically, this behavior is called *hoisting*, when a `var` declaration is conceptually "moved" to the top of its enclosing scope. Technically, this process is more accurately explained by how code is compiled, but we can skip over those details for now.
-
-Consider:
+고려사항:
 
 ```js
 var a = 2;
@@ -387,7 +387,8 @@ function foo() {
 console.log( a );	// 2
 ```
 
-**Warning:** It's not common or a good idea to rely on variable *hoisting* to use a variable earlier in its scope than its `var` declaration appears; it can be quite confusing. It's much more common and accepted to use *hoisted* function declarations, as we do with the `foo()` call appearing before its formal declaration.
+**경고:** `var` 선언보다 범위 내에서 변수를 사용하기 위해 가변적인 *호이스팅*에 의존하는 것은 일반적이지 않으며 좋은 생각이 아닙니다.
+*호이스트* 함수 선언을 사용하는 것이 훨씬 더 일반적이며 받아 들여집니다. 공식 선언 전에 나타나는 `foo()` 호출과 마찬가지로 호이스트 함수 선언을 사용하는 것이 일반적입니다.
 
 #### Nested Scopes
 
