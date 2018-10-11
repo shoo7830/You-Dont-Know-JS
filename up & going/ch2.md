@@ -345,15 +345,17 @@ a == b;		// false
 
 **참고:** 부등 비교 규칙에 대한 자세한 내용은 ES5 사양의 섹션 11.8.5를 참조하고 이 시리즈의 *유형과 문법* 4 장을 참조하십시오.
 
-## Variables
+## 변수
 
-In JavaScript, variable names (including function names) must be valid *identifiers*. The strict and complete rules for valid characters in identifiers are a little complex when you consider nontraditional characters such as Unicode. If you only consider typical ASCII alphanumeric characters, though, the rules are simple.
+자바스크립트에서 변수 이름 (함수 이름 포함)은 유효한 *식별자*여야합니다.
+Unicode와 같은 비 전통적 문자를 고려할 때 식별자의 유효한 문자에 대한 엄격하고 완전한 규칙은 조금 복잡합니다.
+그러나 일반적인 ASCII 영숫자 문자만 고려하면 규칙은 간단합니다.
 
-An identifier must start with `a`-`z`, `A`-`Z`, `$`, or `_`. It can then contain any of those characters plus the numerals `0`-`9`.
+식별자는 `a`-`z`, `A`-`Z`, `$` 또는 `_`로 시작해야합니다. 그런 다음 해당 문자와 ​​숫자 `0`-`9`를 더할 수 있습니다.
+일반적으로 변수 식별자와 동일한 규칙이 속성 이름에 적용됩니다.
+그러나 특정 단어는 변수로 사용할 수 없지만 속성 이름으로 사용하면 좋습니다. 이 단어는 "예약어"라고하며 JS 키워드 (`for`, `in`, `if` 등)는 물론 `null`, `true` 및 `false`도 포함됩니다.
 
-Generally, the same rules apply to a property name as to a variable identifier. However, certain words cannot be used as variables, but are OK as property names. These words are called "reserved words," and include the JS keywords (`for`, `in`, `if`, etc.) as well as `null`, `true`, and `false`.
-
-**Note:** For more information about reserved words, see Appendix A of the *Types & Grammar* title of this series.
+**참고 :** 예약어에 대한 자세한 내용은 이 시리즈의 *유형 및 문법* 부록 A를 참조하십시오.
 
 ### Function Scopes
 
