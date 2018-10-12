@@ -180,7 +180,7 @@ b.toFixed(4);			// "3.1416"
 
 ### 값의 비교
 
-JS 프로그램에서 *평등*과 *불평등*의 두 가지 주요 유형을 비교해야합니다: 모든 비교 결과는 비교되는 값 유형에 관계없이 엄격하게 `부울` 값 (`true` 또는 `false`)입니다.
+JS 프로그램에서 *동등*과 *부등*의 두 가지 주요 유형을 비교해야합니다: 모든 비교 결과는 비교되는 값 유형에 관계없이 엄격하게 `부울` 값 (`true` 또는 `false`)입니다.
 
 #### 강제 변환
 
@@ -238,7 +238,7 @@ b;				// 42 -- 숫자!
 
 #### 동등
 
-네 개의 동등연산자가 있습니다: `==`, `===`, `!=`, `!==` 입니다. The `!` 양식은 물론 대칭인 "동등하지 않은"  버전입니다. *비 동등성*을 *불평등*과 혼동해서는 안됩니다.
+네 개의 동등연산자가 있습니다: `==`, `===`, `!=`, `!==` 입니다. The `!` 양식은 물론 대칭인 "동등하지 않은"  버전입니다. *비 동등성*을 *부등*과 혼동해서는 안됩니다.
 
 `==`과 `===`의 차이점은 일반적으로는 `==`는 값의 동등성을 검사하고 `===`는 값과 동등성을 모두 확인 한다는 것을 특징으로 합니다. 그러나 이것은 정확하지 않습니다. 그것들을 특성화 하는 적절한 방법은 `==`는 강제 변환과 함께 가치 동등 을 검사하고 `===`는 강압을 허용하지 않고 가치 동등을 검사하는 것입니다. 이러한 이유로 "엄격한 동등" 이라고 종종 부릅니다.
 
@@ -390,9 +390,9 @@ console.log( a );	// 2
 **경고:** `var` 선언보다 범위 내에서 변수를 사용하기 위해 가변적인 *호이스팅*에 의존하는 것은 일반적이지 않으며 좋은 생각이 아닙니다.
 *호이스트* 함수 선언을 사용하는 것이 훨씬 더 일반적이며 받아 들여집니다. 공식 선언 전에 나타나는 `foo()` 호출과 마찬가지로 호이스트 함수 선언을 사용하는 것이 일반적입니다.
 
-#### Nested Scopes
+#### 중첩 범위
 
-When you declare a variable, it is available anywhere in that scope, as well as any lower/inner scopes. For example:
+변수를 선언하면 해당 범위의 모든 위치와 하위/내부 범위에서 변수를 사용할 수 있습니다. 예 :
 
 ```js
 function foo() {
@@ -418,9 +418,11 @@ function foo() {
 foo();
 ```
 
-Notice that `c` is not available inside of `bar()`, because it's declared only inside the inner `baz()` scope, and that `b` is not available to `foo()` for the same reason.
+`bar()` 내부에서는 `c`를 사용할 수 없습니다.  `baz()`의 내부 범위 내에서만 선언되고 `b`는 동일한 이유로 `foo()`에서 사용할 수 없기 때문입니다.
 
-If you try to access a variable's value in a scope where it's not available, you'll get a `ReferenceError` thrown. If you try to set a variable that hasn't been declared, you'll either end up creating a variable in the top-level global scope (bad!) or getting an error, depending on "strict mode" (see "Strict Mode"). Let's take a look:
+사용할 수 없는 범위에서 변수의 값에 액세스하려고하면 `ReferenceError`가 발생합니다.
+선언되지 않은 변수를 설정하려고하면 "strict mode"에 따라 최상위 전역 범위 (bad!)에 변수를 만들거나 오류가 발생하게됩니다 ( "Strict Mode "). 한 번 봅시다:
+If you try to set a variable that hasn't been declared, you'll either end up creating a variable in the top-level global scope (bad!) or getting an error, depending on "strict mode" (see "Strict Mode"). Let's take a look:
 
 ```js
 function foo() {
