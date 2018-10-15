@@ -422,20 +422,20 @@ foo();
 
 사용할 수 없는 범위에서 변수의 값에 액세스하려고하면 `ReferenceError`가 발생합니다.
 선언되지 않은 변수를 설정하려고하면 "strict mode"에 따라 최상위 전역 범위 (bad!)에 변수를 만들거나 오류가 발생하게됩니다 ( "Strict Mode "). 한 번 봅시다:
-If you try to set a variable that hasn't been declared, you'll either end up creating a variable in the top-level global scope (bad!) or getting an error, depending on "strict mode" (see "Strict Mode"). Let's take a look:
 
 ```js
 function foo() {
-	a = 1;	// `a` not formally declared
+	a = 1;	// 공식적으로 선언되지 않은`a`
 }
 
 foo();
-a;			// 1 -- oops, auto global variable :(
+a;			// 1 - 엌..., 자동 전역 변수 :(
 ```
 
-This is a very bad practice. Don't do it! Always formally declare your variables.
+이것은 매우 나쁜 습관입니다. 하지 마세요! 항상 공식적으로 변수를 선언하십시오.
 
-In addition to creating declarations for variables at the function level, ES6 *lets* you declare variables to belong to individual blocks (pairs of `{ .. }`), using the `let` keyword. Besides some nuanced details, the scoping rules will behave roughly the same as we just saw with functions:
+함수 레벨에서 변수에 대한 선언을 작성하는 것 외에도 ES6을 사용하면 *let* 키워드를 사용하여 변수를 개별 블록 (`{..}` 쌍)에 속하도록 선언할 수 있습니다.
+뉘앙스가 있는 세부 사항 외에도 범위 지정 규칙은 함수를 통해 보았을 때와 거의 동일하게 작동합니다:
 
 ```js
 function foo() {
@@ -457,9 +457,11 @@ foo();
 // 5 7 9
 ```
 
-Because of using `let` instead of `var`, `b` will belong only to the `if` statement and thus not to the whole `foo()` function's scope. Similarly, `c` belongs only to the `while` loop. Block scoping is very useful for managing your variable scopes in a more fine-grained fashion, which can make your code much easier to maintain over time.
+`var` 대신 `let`을 사용하기 때문에 `b`는 `if` 문에만 속할 것이므로 따라서 `foo()` 함수의 범위 전체에 속하지 않습니다.
+마찬가지로, `c`는 `while` 루프에만 속합니다.
+블록 범위 지정은 보다 세분화 된 방식으로 변수 범위를 관리하는 데 매우 유용하며 시간이 지남에 따라 코드를 훨씬 쉽게 유지 관리 할 수 ​​있습니다.
 
-**Note:** For more information about scope, see the *Scope & Closures* title of this series. See the *ES6 & Beyond* title of this series for more information about `let` block scoping.
+**참고:** 범위에 대한 자세한 내용은 이 시리즈의 *범위와 클로져* 제목을 참조하십시오. 블록 범위 지정에 대한 자세한 내용은 이 시리즈의 *ES6와 그 이상* 제목을 참조하십시오.
 
 ## Conditionals
 
